@@ -43,11 +43,11 @@ export const Hero = () => (
                          Des Solutions Complètes
                     </AuroraText>
                     <Typograpy.Text className=" mt-4! md:mt-8! leading-5! md:leadin8! md:font-normal font-thin">
-                        Startup avec une idée révolutionnaire, entreprise cherchant à moderniser ses outils, ou professionnel voulant marquer sa présence en ligne ? Peu importe votre profil, je développe la solution technique qui correspond exactement à vos besoins et ambitions.
+                       {`Startup avec une idée révolutionnaire, entreprise cherchant à moderniser ses outils, ou professionnel voulant marquer sa présence en ligne ? Peu importe votre profil, je développe la solution technique qui correspond exactement à vos besoins et ambitions.`}
                     </Typograpy.Text>
                     <br/>
                     <Typograpy.Text className="mt-0! leading-5! font-thin md:leadin8! md:font-normal">
-                    De l'analyse initiale au déploiement final, je prends en charge l'intégralité de votre projet avec une approche sur-mesure. Vous gardez le contrôle de votre vision, je transforme vos idées en réalité digitale performante et évolutive.
+                    {`De l'analyse initiale au déploiement final, je prends en charge l'intégralité de votre projet avec une approche sur-mesure. Vous gardez le contrôle de votre vision, je transforme vos idées en réalité digitale performante et évolutive.`}
                     </Typograpy.Text>
                     <Button variant="outline" className=" relative cursor-pointer rounded-full mt-4 md:mt-12">
                         Nos Sevices
@@ -84,7 +84,7 @@ export const Hero = () => (
                     <span className="pl-2">- documentation</span>
                 </AnimatedSpan>
                 <TypingAnimation className="text-muted-foreground">
-                        bravo ! votre projet a vue le jours en un clin d'oeil 
+                    {`bravo ! votre projet a vue le jours en un clin d'oeil`}
                 </TypingAnimation>
                 <TypingAnimation className="text-muted-foreground">
                     Besoin de nouvelle fonctionalitées ?
@@ -121,7 +121,7 @@ export const Hero = () => (
                         <CardTitle>Performance</CardTitle>
                     </CardHeader>
                     <CardContent className="font-thin md:font-normal">
-                        Chaque milliseconde compte pour vos utilisateurs. J'optimise vos applications pour des temps de chargement ultra-rapides et une expérience utilisateur fluide, quel que soit le volume de trafic. Votre succès passe par des performances qui impressionnent.
+                        {`Chaque milliseconde compte pour vos utilisateurs. J'optimise vos applications pour des temps de chargement ultra-rapides et une expérience utilisateur fluide, quel que soit le volume de trafic. Votre succès passe par des performances qui impressionnent.`}
                     </CardContent>
                 </Card>
                 <Card className="relative overflow-hidden w-full rounded-[0.625rem]">
@@ -131,7 +131,7 @@ export const Hero = () => (
                         <CardTitle>Stabilité</CardTitle>
                     </CardHeader>
                     <CardContent className="font-thin md:font-normal">
-                        Votre projet mérite des fondations à toute épreuve. J'architecture vos solutions avec des technologies éprouvées et un code robuste qui résiste au temps et à la montée en charge. Sécurité, stabilité et fiabilité garanties.
+                        {`Votre projet mérite des fondations à toute épreuve. J'architecture vos solutions avec des technologies éprouvées et un code robuste qui résiste au temps et à la montée en charge. Sécurité, stabilité et fiabilité garanties.`}
                     </CardContent>
                 </Card>
                 <Card className="relative overflow-hidden w-full rounded-[0.625rem]">
@@ -141,7 +141,7 @@ export const Hero = () => (
                         <CardTitle>Flexibilité</CardTitle>
                     </CardHeader>
                     <CardContent className="font-thin md:font-normal">
-                        Vos besoins évoluent, vos solutions aussi. Je développe avec des technologies modernes et une architecture modulaire qui facilite les évolutions futures. Votre investissement technique grandit avec votre business.
+                       {` Vos besoins évoluent, vos solutions aussi. Je développe avec des technologies modernes et une architecture modulaire qui facilite les évolutions futures. Votre investissement technique grandit avec votre business.`}
                     </CardContent>
                 </Card>
             </div>
