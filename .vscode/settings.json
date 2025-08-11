@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  "eslint.format.enable": true,
+  "eslint.options": {
+    "configFile": "./eslint.config.mjs"
+  }
+}
