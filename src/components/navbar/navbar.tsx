@@ -10,7 +10,7 @@ export const links = [
   },
   {
     text: 'Réalisations',
-    url: '/',
+    url: '/projects',
   },
   {
     text: 'Contact',

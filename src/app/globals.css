@@ -41,65 +41,113 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --animate-ripple: ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite;
+  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0)*.2s) infinite;
+
   @keyframes ripple {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
+
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
     }
-  50% {
-    transform: translate(-50%, -50%) scale(0.9);
+
+    50% {
+      transform: translate(-50%, -50%) scale(0.9);
     }
   }
-  --animate-shine: shine var(--duration) infinite linear
-;
+
+  --animate-shine: shine var(--duration) infinite linear;
+
   @keyframes shine {
-  0% {
-    background-position: 0% 0%;}
-  50% {
-    background-position: 100% 100%;}
-  to {
-    background-position: 0% 0%;}}
+    0% {
+      background-position: 0% 0%;
+    }
+
+    50% {
+      background-position: 100% 100%;
+    }
+
+    to {
+      background-position: 0% 0%;
+    }
+  }
+
   --animate-aurora: aurora 8s ease-in-out infinite alternate;
+
   @keyframes aurora {
-  0% {
-    background-position: 0% 50%;
-    transform: rotate(-5deg) scale(0.9);}
-  25% {
-    background-position: 50% 100%;
-    transform: rotate(5deg) scale(1.1);}
-  50% {
-    background-position: 100% 50%;
-    transform: rotate(-3deg) scale(0.95);}
-  75% {
-    background-position: 50% 0%;
-    transform: rotate(3deg) scale(1.05);}
-  100% {
-    background-position: 0% 50%;
-    transform: rotate(-5deg) scale(0.9);}}
+    0% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
+    }
+
+    25% {
+      background-position: 50% 100%;
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    50% {
+      background-position: 100% 50%;
+      transform: rotate(-3deg) scale(0.95);
+    }
+
+    75% {
+      background-position: 50% 0%;
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    100% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
+    }
+  }
+
   --animate-background-position-spin: background-position-spin 3000ms infinite alternate;
+
   @keyframes background-position-spin {
-  0% {
-    background-position: top center;}
-  100% {
-    background-position: bottom center;}}
+    0% {
+      background-position: top center;
+    }
+
+    100% {
+      background-position: bottom center;
+    }
+  }
+
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
   @keyframes marquee {
-  from {
-    transform: translateX(0);}
-  to {
-    transform: translateX(calc(-100% - var(--gap)));}}
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);}
-  to {
-    transform: translateY(calc(-100% - var(--gap)));}}
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
   --animate-grid: grid 15s linear infinite;
+
   @keyframes grid {
-  0% {
-    transform: translateY(-50%);}
-  100% {
-    transform: translateY(0);}}}
+    0% {
+      transform: translateY(-50%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
 /* 
 :root {
   --radius: 0.625rem;
@@ -145,7 +193,7 @@
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: #4b4bff;
+  --secondary: oklch(0.205 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
@@ -167,13 +215,14 @@
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0); 
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
