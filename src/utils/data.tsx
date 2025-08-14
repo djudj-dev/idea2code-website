@@ -4,6 +4,7 @@ import NPM from "@/../public/npm.jpg"
 import Lily from "@/../public/lily-bg.jpg"
 import SpredictWebsite from "@/../public/spredict.png"
 import SpredictWebApp from "@/../public/spredict.webp"
+import DiotSciaci from '@/../public/diot-sciaci-bg.png'
 import { GithubIcon } from "@/components/icons/tech";
 
 
@@ -75,6 +76,14 @@ export const servicesData = {
 }
 
 export const ProjectData: ProjectCardProps[] = [
+    {
+
+        title: 'UX/UI React Integration',
+        dates: 'Juillet 2025',
+        tags: ['Typescript', 'React',],
+        description: `Integration d'element d'UI/X et fix de bug d'une application interne`,
+        image: DiotSciaci.src
+    },
     {
 
         title: 'Developpement Appli Web3',
