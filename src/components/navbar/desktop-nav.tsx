@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Typography } from "../typography";
-import { Button } from "../ui/button";
 
 export const DesktopNav = ({
     links,

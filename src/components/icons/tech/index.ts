@@ -18,3 +18,5 @@ export { StrapiIcon } from './StrapiIcon';
 export { TailwindIcon } from './TailwindIcon';
 export { TypescriptIcon } from './TypescriptIcon';
 export { VimIcon } from './VimIcon';
+export { GithubIcon } from './GithubIcon'
+export { KubernetesIcon } from './KubernetesIcon'

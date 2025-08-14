@@ -49,17 +49,17 @@ const Home = () => (
             <div className="flex items-center justify-center flex-wrap">
               <Image
                 src={LilyFaciliteLaVie}
-                className="h-18 w-auto px-2 mx-2 md:mx-6 rounded"
+                className="h-18 w-auto px-2 mx-2 md:mx-8 rounded"
                 alt={'lily facilite la vie'}
               />
               <Image
                 src={Spredict}
-                className="h-20 w-40 px-2 mx-2 md:mx-6 mx-6 rounded"
+                className="h-20 w-40 px-2 mx-2 md:mx-8 rounded"
                 alt={'spredict'}
               />
               <img
                 src={DiotSciaci.src}
-                className="h-18 w-40 px-2 mx-2 md:mx-6 mx-6 rounded-full"
+                className="h-18 w-40 px-2 mx-2 md:mx-8 rounded-full"
                 alt={'diot-sciaci'}
               />
             </div>

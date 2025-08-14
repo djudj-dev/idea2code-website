@@ -1,5 +1,3 @@
-import { button } from "motion/react-client";
-
 export const string = {
     hero: {
         title1: 'Une Idée ? On la Code !',

@@ -4,6 +4,7 @@ import NPM from "@/../public/npm.jpg"
 import Lily from "@/../public/lily-bg.jpg"
 import SpredictWebsite from "@/../public/spredict.png"
 import SpredictWebApp from "@/../public/spredict.webp"
+import { GithubIcon } from "@/components/icons/tech";
 
 
 export const reviews = [
@@ -88,7 +89,14 @@ export const ProjectData: ProjectCardProps[] = [
         dates: 'Septembre 2024',
         tags: ['Typescript', 'Nextjs',],
         description: `Developpement d'un site vitrine pour une Dapp de prédiction sportive qui interagie avec une blockchain privée`,
-        image: SpredictWebsite.src
+        image: SpredictWebsite.src,
+        links: [
+            {
+                href: 'https://spredict.io',
+                type: 'Site web',
+                icon: <Globe className="size-5!" />
+            }
+        ]
     },
     {
 
@@ -108,7 +116,7 @@ export const ProjectData: ProjectCardProps[] = [
             {
                 href: 'https://www.npmjs.com/package/@e2fy/ioredis-zod-om',
                 type: 'Code source',
-                icon: <Globe />
+                icon: <GithubIcon className="size-5! p-0.25 bg-black rounded-full" />
             }
         ],
         image: NPM.src
@@ -123,7 +131,7 @@ export const ProjectData: ProjectCardProps[] = [
             {
                 href: 'https://www.npmjs.com/package/@e2fy/effy-crypto',
                 type: 'Code source',
-                icon: <Globe />
+                icon: <GithubIcon className="size-5! p-0.25 bg-black rounded-full" />
             }
         ],
         image: NPM.src

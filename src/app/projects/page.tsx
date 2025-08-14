@@ -10,7 +10,7 @@ const Projects = () => (
                 Projets & Réalisations
             </AuroraText>
             <Typography.Lead className="mt-4 pb-4 text-base! md:text-lg! border-b-1 border-b-white/15">
-                Découvrez comment j'ai transformé des idées en succès digitaux
+                {`Découvrez comment j'ai transformé des idées en succès digitaux`}
             </Typography.Lead>
             <div className="mt-12 w-full grid lg:grid-cols-2 2xl:grid-cols-4 gap-12">
                 {

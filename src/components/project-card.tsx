@@ -87,8 +87,8 @@ export function ProjectCard({
             <CardContent className="mt-0 flex flex-col px-2 md:px-6">
                 {tags && tags.length > 0 && (
                     <div className="flex flex-wrap gap-1">
-                        {tags?.map((tag) => (
-                            <TechBadge tech={tag} />
+                        {tags?.map((tag, index) => (
+                            <TechBadge key={index} tech={tag} />
                         ))}
                     </div>
                 )}

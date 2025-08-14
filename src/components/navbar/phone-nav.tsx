@@ -4,10 +4,7 @@ import { MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Typography } from '@/components/typography';
-import { Card } from '@/components/ui/card';
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-
-const { Header2 } = Typography;
 
 export const PhoneNav = ({
     links,

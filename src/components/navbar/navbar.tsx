@@ -1,5 +1,4 @@
 
-import octocat from '../../../../public/octocat.png';
 import { DesktopNav } from './desktop-nav';
 import { PhoneNav } from './phone-nav'
 
