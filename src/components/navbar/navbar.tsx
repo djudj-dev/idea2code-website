@@ -5,10 +5,6 @@ import { PhoneNav } from './phone-nav'
 
 export const links = [
   {
-    text: 'Acceuil',
-    url: '/'
-  },
-  {
     text: 'Services',
     url: '/services',
   },
