@@ -3,11 +3,11 @@
 import { MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Typograpy } from '@/components/Typography';
+import { Typography } from '@/components/typography';
 import { Card } from '@/components/ui/card';
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
-const { Header2 } = Typograpy;
+const { Header2 } = Typography;
 
 export const PhoneNav = ({
     links,
@@ -23,7 +23,7 @@ export const PhoneNav = ({
             className=" md:hidden w-full h-12 bg-(--background) fixed z-30 border-b-1 border-b-white/15 px-4 py-2 flex items-center justify-between"
         >
             <Link href="/">
-                <Typograpy.Lead>IdeaToCode</Typograpy.Lead>
+                <Typography.Lead>IdeaToCode</Typography.Lead>
             </Link>
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild data-cy="phone-menu-input">
@@ -43,7 +43,7 @@ export const PhoneNav = ({
                     <div className=" flex w-full flex-col items-start justify-center text-left p-4">
                         {links.map(({ text, url }, index) => (
                             <Link className="first:pt-0 mt-2" key={index} href={url} scroll={true}>
-                                <Typograpy.Text >{text} /</Typograpy.Text>
+                                <Typography.Text >{text}/</Typography.Text>
                             </Link>
                         ))}
                     </div>

@@ -5,7 +5,7 @@ import { ShineBorder } from "@/components/magicui/shine-border";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { Particles } from "@/components/magicui/particles";
 import { Marquee } from "@/components/magicui/marquee";
-import { Typograpy } from "@/components/Typography";
+import { Typography } from "@/components/typography";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ReviewCard } from "@/components/ui/review-card";
 import { Button } from "@/components/ui/button";
@@ -20,10 +20,10 @@ const Home = () => (
           <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className="scroll-m-20 text-3xl md:text-4xl font-extrabold tracking-tight lg:text-5xl font-light">
             {string.hero.title1}
           </AuroraText>
-          <Typograpy.Header1 className="z-10 md:mt-6 font-light">
+          <Typography.Header1 className="z-10 md:mt-6 font-light">
             {string.hero.title2}
-          </Typograpy.Header1>
-          <Typograpy.Text className="mt-4! md:mt-8! md:font-normal font-thin">{string.hero.desc}</Typograpy.Text>
+          </Typography.Header1>
+          <Typography.Text className="mt-4! md:mt-8! md:font-normal font-thin">{string.hero.desc}</Typography.Text>
           <Button variant="outline" className="relative cursor-pointer rounded-full border-(--secondary) my-4 md:my-12">
             {string.hero.button}
             <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
@@ -40,12 +40,12 @@ const Home = () => (
           <AuroraText colors={["#00F0FF", "#7a3dffff", "#ffffffff"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light!">
             {string.section1.title}
           </AuroraText>
-          <Typograpy.Text className=" mt-4! md:mt-8! leading-5! md:leadin8! md:font-normal font-thin">
+          <Typography.Text className=" mt-4! md:mt-8! leading-5! md:leadin8! md:font-normal font-thin">
             {string.section1.text1}
-          </Typograpy.Text>
-          <Typograpy.Text className="mt-0! leading-5! font-thin md:leadin8! md:font-normal">
+          </Typography.Text>
+          <Typography.Text className="mt-0! leading-5! font-thin md:leadin8! md:font-normal">
             {string.section1.text2}
-          </Typograpy.Text>
+          </Typography.Text>
           <Button variant="outline" className=" relative cursor-pointer rounded-full mt-4 md:mt-12">
             {string.section1.button}
             <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />

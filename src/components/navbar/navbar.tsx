@@ -1,12 +1,16 @@
 
 import octocat from '../../../../public/octocat.png';
-import { DesktopNav } from './DesktopNav';
-import { PhoneNav } from './PhoneNav'
+import { DesktopNav } from './desktop-nav';
+import { PhoneNav } from './phone-nav'
 
 export const links = [
   {
+    text: 'Acceuil',
+    url: '/'
+  },
+  {
     text: 'Services',
-    url: '/',
+    url: '/services',
   },
   {
     text: 'Réalisations',

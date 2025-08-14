@@ -5,7 +5,7 @@ type TypographyParams = {
   className?: string;
 };
 
-export const Typograpy = {
+export const Typography = {
   Header1: ({ children, className, ...otherProps }: TypographyParams) => (
     <h1
       className={`scroll-m-20 text-3xl md:text-4xl font-extrabold tracking-tight lg:text-5xl ${className || ''}`}
@@ -64,4 +64,4 @@ export const Typograpy = {
   ),
 };
 
-export {};
+export { };
