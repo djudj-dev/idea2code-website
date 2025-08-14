@@ -42,7 +42,7 @@ export const PhoneNav = ({
                     </SheetHeader>
                     <div className=" flex w-full flex-col items-start justify-center text-left p-4">
                         {links.map(({ text, url }, index) => (
-                            <Link className="first:pt-0 mt-2" key={index} href={url} scroll={true}>
+                            <Link className="first:pt-0 mt-2" key={index} href={url} scroll={true} onClick={() => setOpen(false)}>
                                 <Typography.Text >{text}/</Typography.Text>
                             </Link>
                         ))}

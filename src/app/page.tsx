@@ -11,6 +11,10 @@ import { ReviewCard } from "@/components/ui/review-card";
 import { Button } from "@/components/ui/button";
 import { reviews } from "@/utils/data";
 import { string } from "@/utils/string";
+import DiotSciaci from "@/../public/diot-sciaci.png"
+import LilyFaciliteLaVie from '@/../public/lily.svg'
+import Spredict from '@/../public/spredict.svg'
+import Image from 'next/image';
 
 const Home = () => (
   <>
@@ -32,6 +36,36 @@ const Home = () => (
       </div>
       <div className="h-[100vw] md:h-[50vw] md:w-[50vw] max-h-[700px] max-w-[700px] relative overflow-hidden">
         <Globe className="m-auto" />
+      </div>
+    </section>
+    <section id="companies">
+      <div className="py-14">
+        <div className="w-full mx-auto ">
+          <Typography.Header3 className="text-center text-sm font-semibold text-gray-500">
+            IL NOUS ON FAIT CONFIANCE
+          </Typography.Header3>
+          <div className="relative mt-6">
+            <div className="flex items-center justify-center flex-wrap">
+              <Image
+                src={LilyFaciliteLaVie}
+                className="h-18 w-auto px-2 mx-2 md:mx-6 rounded"
+                alt={'lily facilite la vie'}
+              />
+              <Image
+                src={Spredict}
+                className="h-20 w-40 px-2 mx-2 md:mx-6 mx-6 rounded"
+                alt={'spredict'}
+              />
+              <img
+                src={DiotSciaci.src}
+                className="h-18 w-40 px-2 mx-2 md:mx-6 mx-6 rounded-full"
+                alt={'diot-sciaci'}
+              />
+            </div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/3 bg-gradient-to-r from-black"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/3 bg-gradient-to-l from-black"></div>
+          </div>
+        </div>
       </div>
     </section>
     <section className="w-full py-4 md:py-8 flex flex-col-reverse md:flex-row justify-left items-center gap-6">

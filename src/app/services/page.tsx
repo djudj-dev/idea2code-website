@@ -38,19 +38,19 @@ const ServicesCard = ({
                 </div>
             </CardTitle>
             <CardDescription className="mt-3">
-                <Typography.Text className="leading-5! md:leading-6! text-xs! md:text-normal! text-white">
+                <Typography.Text className="leading-5! md:leading-6! text-xs! md:text-base! text-white">
                     {desc}
                 </Typography.Text>
             </CardDescription>
         </CardHeader>
-        <CardContent className="border-y-1 border-y-white/15 py-2 md:py-4">
+        <CardContent className="h-full border-t-1 border-t-white/15 py-2 md:py-4">
             <div>
                 <Typography.Lead className="font-semibold text-base! md:text-xl!">
                     Valeur Ajouté :
                 </Typography.Lead>
                 <ul className="ml-4 mt-3">
                     {values.map((value, index) => (
-                        <li key={index} className="flex items-center text-xs! md:text-normal!">- {value}</li>
+                        <li key={index} className="flex items-center text-xs! md:text-base!">- {value}</li>
                     ))}
                 </ul>
             </div>
@@ -65,7 +65,7 @@ const ServicesCard = ({
                 </div>
             </div>
         </CardContent>
-        <CardFooter className="h-full flex items-end justify-between">
+        <CardFooter className="h-fit flex items-end justify-between pt-4 border-t-1 border-t-white/15">
             <Typography.Large className="font-semibold text-base! md:text-xl!">{price}</Typography.Large>
             <Link href={button.link}>
                 <Button variant="outline" className="bg-black/15 relative cursor-pointer rounded-full ">

@@ -44,7 +44,7 @@ export const string = {
         },
     },
     section3: {
-        title: 'Ils nous on fait confiance.'
+        title: 'Nos Temoignages'
     },
     section4: {
         title: 'Lancer votre projet !',
