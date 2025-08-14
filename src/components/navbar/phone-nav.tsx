@@ -25,7 +25,7 @@ export const PhoneNav = ({
             <Link href="/">
                 <Typography.Lead>IdeaToCode</Typography.Lead>
             </Link>
-            <Sheet open={open} onOpenChange={setOpen}>
+            <Sheet open={open} defaultOpen={false} onOpenChange={setOpen}>
                 <SheetTrigger asChild data-cy="phone-menu-input">
                     <MenuIcon className="size-6 " />
                 </SheetTrigger>

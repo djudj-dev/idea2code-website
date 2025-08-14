@@ -15,6 +15,7 @@ import DiotSciaci from "@/../public/diot-sciaci.png"
 import LilyFaciliteLaVie from '@/../public/lily.svg'
 import Spredict from '@/../public/spredict.svg'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Home = () => (
   <>
@@ -80,10 +81,12 @@ const Home = () => (
           <Typography.Text className="mt-0! leading-5! font-thin md:leadin8! md:font-normal">
             {string.section1.text2}
           </Typography.Text>
-          <Button variant="outline" className=" relative cursor-pointer rounded-full mt-4 md:mt-12">
-            {string.section1.button}
-            <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
-          </Button>
+          <Link href={'/services'}>
+            <Button variant="outline" className=" relative cursor-pointer rounded-full mt-4 md:mt-12">
+              {string.section1.button}
+              <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
+            </Button>
+          </Link>
         </div>
       </div>
       <Terminal className="md:w-1/2 h-[400px]">
