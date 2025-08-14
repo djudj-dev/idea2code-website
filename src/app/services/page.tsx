@@ -16,9 +16,6 @@ const Services = () => (<>
         <Typography.Lead className="mt-4 pb-4 text-base! md:text-lg! border-b-1 border-b-white/15">
             Des solutions techniques adaptées à chaque étape de votre croissance digitale
         </Typography.Lead>
-        <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light!">
-            Services :
-        </AuroraText>
         <div className="mt-12 w-full grid lg:grid-cols-2 2xl:grid-cols-4 gap-12">
             <ServicesCard {...servicesData.landingPage} />
             <ServicesCard {...servicesData.vitrineSite} />
@@ -27,7 +24,8 @@ const Services = () => (<>
         </div>
     </section>
     <section className="w-full py-4 md:py-8 flex flex-col justify-center">
-        <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light!">            Nos Process :
+        <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light!">
+            Nos Process :
         </AuroraText>
         <div className="mt-6 p-6 bg-muted relative font-light! md:font-semibold! rounded font-mono text-sm font-semibold rounded-[0.625rem] border-1 border-white/15">
             <div className="flex items-center  ">

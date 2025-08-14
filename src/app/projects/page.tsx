@@ -1,7 +1,9 @@
 import { AuroraText } from "@/components/magicui/aurora-text";
+import { Marquee } from "@/components/magicui/marquee";
 import { ProjectCard } from "@/components/project-card";
 import { Typography } from "@/components/typography";
-import { ProjectData } from "@/utils/data";
+import { ReviewCard } from "@/components/ui/review-card";
+import { ProjectData, reviews } from "@/utils/data";
 
 const Projects = () => (
     <>
@@ -16,6 +18,22 @@ const Projects = () => (
                 {
                     ProjectData.map((props, index) => <ProjectCard key={props.title + index} {...props} />)
                 }
+            </div>
+        </section>
+        <section className="w-full py-4 md:py-8">
+            <div className="w-full m-auto mb-10">
+                <AuroraText colors={["#00F0FF", "#7a3dffff", "#ffffffff"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light! w-full">
+                    Nos Temoignages
+                </AuroraText>
+            </div>
+            <div className="relative flex w-full m-auto flex-col items-center justify-center overflow-hidden">
+                <Marquee pauseOnHover className="[--duration:60s]">
+                    {reviews.map((review) => (
+                        <ReviewCard shorted={false} key={review.name} {...review} />
+                    ))}
+                </Marquee>
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
             </div>
         </section>
     </>

@@ -5,15 +5,20 @@ export const ReviewCard = ({
     img,
     name,
     body,
+    shorted = true
 }: {
     img: string;
     name: string;
     body: string;
+    shorted: boolean
 }) => {
+
+    const text = shorted ? body.length > 120 ? body.slice(0, 120) + '...' : body : body
+
     return (
         <figure
             className={cn(
-                "relative h-full max-w-48 md:max-w-86 cursor-pointer overflow-hidden rounded-[0.625rem] border p-4",
+                "relative h-fit max-w-48 md:max-w-86 cursor-pointer overflow-hidden rounded-[0.625rem] border p-4",
                 // dark styles
                 "border-gray-50/[.1] bg-gray-50/[.10] hover:bg-gray-50/[.15]",
             )}
@@ -26,7 +31,7 @@ export const ReviewCard = ({
                     </figcaption>
                 </div>
             </div>
-            <blockquote className="mt-2 text-sm">{body.length > 120 ? body.slice(0, 120) + '...' : body}</blockquote>
+            <blockquote className="mt-2 text-sm">{text}</blockquote>
         </figure>
     );
 };

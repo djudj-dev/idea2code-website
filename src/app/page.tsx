@@ -63,8 +63,8 @@ const Home = () => (
                 alt={'diot-sciaci'}
               />
             </div>
-            <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/3 bg-gradient-to-r from-black"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/3 bg-gradient-to-l from-black"></div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/5 md:w-1/3 bg-gradient-to-r from-black"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/5 md:w-1/3 bg-gradient-to-l from-black"></div>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@ const Home = () => (
         </Card>
       </div>
     </section>
-    <section className="w-full py-4 md:py-8 mb-12">
+    <section className="w-full py-4 md:py-8">
       <div className="w-full m-auto mb-10">
         <AuroraText colors={["#00F0FF", "#7a3dffff", "#ffffffff"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light! w-full">
           {string.section3.title}
@@ -173,14 +173,14 @@ const Home = () => (
       <div className="relative flex w-full m-auto flex-col items-center justify-center overflow-hidden">
         <Marquee pauseOnHover className="[--duration:60s]">
           {reviews.map((review) => (
-            <ReviewCard key={review.name} {...review} />
+            <ReviewCard shorted key={review.name} {...review} />
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
       </div>
     </section>
-    <section className="relative w-full py-4 mb-12 overflow py-24 md:py-32">
+    <section className="relative w-full py-4 overflow py-24 md:py-32">
       <Particles
         className="absolute inset-0 z-0"
         quantity={150}

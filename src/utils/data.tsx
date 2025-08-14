@@ -88,7 +88,7 @@ export const ProjectData: ProjectCardProps[] = [
 
         title: 'Developpement Appli Web3',
         dates: 'Octobre 2024 - novembre 2024',
-        tags: ['Typescript', 'Nextjs',],
+        tags: ['Typescript', 'Tailwind', 'React', 'Nextjs', 'Nodejs', 'Strapi', 'Pgsql', 'Docker',],
         description: `Dévelopement d'une Dapp de prédiction sportive qui interagie avec une blockchain privée`,
         image: SpredictWebApp.src
     },
@@ -96,7 +96,7 @@ export const ProjectData: ProjectCardProps[] = [
 
         title: 'Site Vitrine Appli web3',
         dates: 'Septembre 2024',
-        tags: ['Typescript', 'Nextjs',],
+        tags: ['Typescript', 'Tailwind', 'Nextjs'],
         description: `Developpement d'un site vitrine pour une Dapp de prédiction sportive qui interagie avec une blockchain privée`,
         image: SpredictWebsite.src,
         links: [
