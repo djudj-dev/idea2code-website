@@ -13,7 +13,7 @@ export const links = [
   },
   {
     text: 'Contact',
-    url: '/',
+    url: '/contact',
   },
 ];
 
