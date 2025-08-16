@@ -50,7 +50,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
                             <SelectItem value="landingpage">Landing Page</SelectItem>
                             <SelectItem value="vitrinewebsite">Site Vitrine</SelectItem>
                             <SelectItem value="SaaS">SaaS</SelectItem>
-                            <SelectItem value="Intervention">Intervention D'app</SelectItem>
+                            <SelectItem value="Intervention">{`Intervention D'app`}</SelectItem>
                             <SelectItem value="other">Autre</SelectItem>
                         </SelectGroup>
                     </SelectContent>
