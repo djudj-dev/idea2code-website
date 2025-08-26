@@ -1,6 +1,8 @@
-import { formSchema } from "@/lib/models";
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest } from "next/server";
 import nodemailer from "nodemailer"
+import { kv } from '@vercel/kv';
+import { Ratelimit } from '@upstash/ratelimit';
+import { formSchema } from "@/lib/models";
 import z from "zod";
 
 const transporter = nodemailer.createTransport({
@@ -51,7 +53,29 @@ const mailOptionGenerator = ({
     }
 }
 
+const rateLimit = new Ratelimit({
+  redis: kv,
+  limiter: Ratelimit.slidingWindow(1, '10 m'), // 5 requests in 10 seconds
+});
+
 export const POST = async (req: NextRequest) => {
+ 
+  const ip = req.headers.get('x-forwarded-for') || '127.0.0.1'
+
+  console.log('ip :', ip)
+  const redisData = await rateLimit.limit(`ratelimit_${ip}`);
+
+  console.log(redisData)
+
+  if(!redisData.success) {
+    return Response.json(
+      { message: 'Too many requests' },
+      {
+        status: 429,
+      }
+    )
+  } 
+
   const data  = await req.json();
   const formData = formSchema.parse(data)
 
@@ -59,7 +83,7 @@ export const POST = async (req: NextRequest) => {
   const info = await transporter.sendMail(mailPayload);
 
   return Response.json(
-    {info: info },
+     { message: 'Email send' },
     {
       status: 200,
     }
