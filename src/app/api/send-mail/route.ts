@@ -55,7 +55,7 @@ const mailOptionGenerator = ({
 
 const rateLimit = new Ratelimit({
   redis: kv,
-  limiter: Ratelimit.slidingWindow(1, '10 m'), // 5 requests in 10 seconds
+  limiter: Ratelimit.slidingWindow(1, '1 m'), // 1 requests in 1 minute
 });
 
 export const POST = async (req: NextRequest) => {

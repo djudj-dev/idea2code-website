@@ -36,7 +36,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
                 body: JSON.stringify(data)
             }).then((v) => {
                 toast(
-                    "Email envoyé 📨.",
+                    "📧 Email envoyé !",
                     {
                         className: 'z-50 text-white! bg-card! border-white/15!',
                         duration: 2000,
