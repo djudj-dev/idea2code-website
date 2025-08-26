@@ -1,5 +1,5 @@
 import { ProjectCardProps } from "@/components/project-card";
-import { Globe, LayoutPanelLeft, PanelTop, Store, Wrench } from "lucide-react";
+import { FolderCode, Globe, LayoutPanelLeft, PanelTop, Rocket, Store, Wrench } from "lucide-react";
 import NPM from "@/../public/npm.jpg"
 import Lily from "@/../public/lily-bg.jpg"
 import SpredictWebsite from "@/../public/spredict.png"
@@ -21,7 +21,7 @@ export const reviews = [
     },
     {
         name: "Mane",
-        body: "Tres bonne communication, à su répondre à nos attentes, je recommande",
+        body: "Très bonne communication, a su répondre à nos attentes, je recommande",
         img: "https://avatar.vercel.sh/john",
     },
     {
@@ -39,38 +39,38 @@ export const reviews = [
 export const servicesData = {
     landingPage: {
         title: 'Landing Page',
-        Icon: <PanelTop className="mr-2 size-7" />,
-        desc: `Page d'atterrissage optimisée pour transformer vos visiteurs en clients. Design moderne, contenu persuasif et expérience utilisateur parfaite pour maximiser vos conversions.`,
-        values: ['Taux de conversion optimisé', 'Design responsive et moderne', 'Temps de chargement litra-rapide', 'Intégration analytics et tracking'],
+        Icon: <Rocket className="mr-2 size-7" />,
+        desc: `Transformez vos visiteurs en clients. Une page d’atterrissage moderne et optimisée pour maximiser vos conversions grâce à un design attractif, des contenus percutants et une expérience utilisateur fluide.`,
+        values: ['Taux de conversion optimisé', 'Design responsive et professionnel', 'Temps de chargement ultra-rapide', 'Suivi complet via analytics et tracking'],
         stack: ['Nextjs', 'Tailwind', 'Typescript'],
-        button: { text: 'Obtenir devis', link: '/contact' },
+        button: { text: 'Obtenir un devis', link: '/contact' },
         price: 'A Partir de 500€'
     },
     vitrineSite: {
         title: 'Site Vitrine',
         Icon: <Store className="mr-2 size-7" />,
-        desc: `Vitrine digitale complète pour présenter votre activité avec élégance. Multi-pages, optimisé SEO et conçu pour renforcer votre crédibilité et attirer de nouveaux clients.`,
-        values: ['Présence professionnelle en ligne', 'Optimisation SEO complète', 'Gestion de contenu simplifiée', 'Compatible tous appareils'],
+        desc: `Mettez en valeur votre activité en ligne. Un site web multi-pages pensé pour renforcer votre crédibilité, améliorer votre visibilité et attirer de nouveaux clients, avec une gestion simple et une optimisation SEO complète.`,
+        values: ['Image professionnelle et crédible', 'Optimisation SEO intégrale', 'Gestion de contenu simplifiée', 'Compatibilité tous supports (desktop, mobile, tablette)'],
         stack: ['Nextjs', 'Strapi', 'React', 'Tailwind', 'Typescript'],
-        button: { text: 'Obtenir devis', link: '/contact' },
+        button: { text: 'Obtenir un devis', link: '/contact' },
         price: 'A Partir de 800€'
     },
     webapp: {
         title: 'SaaS Sur-Mesure',
-        Icon: <LayoutPanelLeft className="mr-2 size-7" />,
-        desc: `Application web complète avec tableau de bord, gestion utilisateurs, paiements et toutes les fonctionnalités métier spécifiques à votre business. Architecture scalable et sécurisée.`,
-        values: ['Solution métier personnalisée', 'Monétisation intégrée', 'Évolutivité garantie', 'Sécurité et performance'],
-        stack: ['Nextjs', 'React', 'Tailwind', 'Typescript', 'Nodejs', 'Strapi', 'Pgsql', 'Docker', 'CI/CD'],
-        button: { text: 'Obtenir devis', link: '/contact' },
+        Icon: <FolderCode className="mr-2 size-7" />,
+        desc: `Votre application web, taillée pour votre business. Un logiciel en ligne évolutif, sécurisé et conçu sur-mesure pour votre activité : tableau de bord, gestion des utilisateurs, paiements, fonctionnalités métier… tout est pensé pour accompagner votre croissance.`,
+        values: ['Solution métier 100 % personnalisée', 'Monétisation intégrée (paiements en ligne)', 'Évolutivité garantie (architecture scalable)', 'Performance et sécurité renforcées'],
+        stack: ['Nextjs', 'React', 'Tailwind', 'Typescript', 'Nodejs', 'Strapi', 'Pgsql', 'Docker'],
+        button: { text: 'Obtenir un devis', link: '/contact' },
         price: 'A Partir de 2000€'
     },
     intervention: {
-        title: `Intervention d'Apps`,
-        Icon: < Wrench className="mr-2 size-7" />,
-        desc: `Développement de nouvelles fonctionnalités ou intervention technique sur votre application existante. Audit, optimisation, corrections et évolutions pour maintenir votre avantage concurrentiel.`,
+        title: `Evolution d'Apps`,
+        Icon: <Wrench className="mr-2 size-7" />,
+        desc: `Améliorez et faites évoluer vos outils existants. Nous intervenons directement sur vos applications déjà en place pour : ajouter de nouvelles fonctionnalités, corriger les éventuels dysfonctionnements, renforcer les performances et assurer une maintenance continue.`,
         values: [`Valorisation de l'existant`, 'Nouvelles fonctionnalités rapidement', 'Optimisation des performances', 'Maintenance technique assurée'],
-        stack: ['Adaptable à votre stack existante', 'Python', 'Php', 'React'],
-        button: { text: 'Obtenir devis', link: '/contact' },
+        stack: ['Python', 'React', 'Php', 'Adaptable à votre stack'],
+        button: { text: 'Obtenir un devis', link: '/contact' },
         price: 'A Partir de 280€/jour'
     }
 }

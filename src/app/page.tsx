@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { reviews } from "@/utils/data";
 import { string } from "@/utils/string";
 import DiotSciaci from "@/../public/diot-sciaci.png"
+import Ozapay from "@/../public/ozapay.png"
 import LilyFaciliteLaVie from '@/../public/lily.svg'
 import Spredict from '@/../public/spredict.svg'
 import Image from 'next/image';
@@ -45,7 +46,7 @@ const Home = () => (
       <div className="py-14">
         <div className="w-full mx-auto ">
           <Typography.Header3 className="text-center text-sm font-semibold text-gray-500">
-            IL NOUS ON FAIT CONFIANCE
+             ILS NOUS ONT FAIT CONFIANCE
           </Typography.Header3>
           <div className="relative mt-6">
             <div className="flex items-center justify-center flex-wrap">
@@ -64,9 +65,12 @@ const Home = () => (
                 className="h-18 w-40 px-2 mx-2 md:mx-8 rounded-full"
                 alt={'diot-sciaci'}
               />
+              <img
+                src={Ozapay.src}
+                className="h-12 w-auto px-2 mx-2 md:mx-8 rounded-full"
+                alt={'diot-sciaci'}
+              />
             </div>
-            <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/5 md:w-1/3 bg-gradient-to-r from-black"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/5 md:w-1/3 bg-gradient-to-l from-black"></div>
           </div>
         </div>
       </div>
