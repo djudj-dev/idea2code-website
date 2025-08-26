@@ -41,7 +41,7 @@ export const ServicesCard = ({
         <CardContent className="h-full border-t-1 border-t-white/15 py-2 md:py-4">
             <div>
                 <Typography.Lead className="font-semibold text-base! md:text-xl!">
-                    Valeur Ajouté :
+                    Valeur ajoutée
                 </Typography.Lead>
                 <ul className="ml-4 mt-3">
                     {values.map((value, index) => (

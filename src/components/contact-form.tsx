@@ -12,46 +12,64 @@ import { Form, FormField } from './ui/form';
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { formSchema } from '@/lib/models';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
 
 export const ContactForm = ({ className }: { className?: string }) => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
     });
     const { register, handleSubmit } = form;
+    const router = useRouter();
+    const [isSending, setSending] = useState(false)
 
     const onSubmit = (data: z.infer<typeof formSchema>) => {
-       fetch('/api/send-mail', {
-            headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify(data)
-        }).then((v) => form.reset())
+        setSending(true);
+            fetch('/api/send-mail', {
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify(data)
+            }).then((v) => {
+                toast(
+                    "Email envoyé 📨.",
+                    {
+                        className: 'z-50 text-white! bg-card! border-white/15!',
+                        duration: 2000,
+                    }
+                )
+                router.push('/')
+            })        
     }
+
+   
 
     return (
         <Form {...form}>
             <form onSubmit={handleSubmit(onSubmit)} className={`md:grid block grid-rows md:grid-rows-none md:grid-cols-2 m-auto ${className}`}>
                 <div className='p-4'>
                     <Label className="mb-2" htmlFor="firstname">Prénom*</Label>
-                    <Input className="rounded" id='firstname' type="text" {...register("firstName", { required: false, maxLength: 80 })} />
+                    <Input disabled={isSending} className="rounded" id='firstname' type="text" {...register("firstName", { required: false, maxLength: 80 })} />
                 </div>
                 <div className='p-4'>
                     <Label className="mb-2" htmlFor="last">Nom*</Label>
-                    <Input className="rounded" id='lastname' type="text" {...register("lastName", { required: false, maxLength: 100 })} />
+                    <Input disabled={isSending} className="rounded" id='lastname' type="text" {...register("lastName", { required: false, maxLength: 100 })} />
                 </div>
                 <div className='p-4'>
                     <Label className="mb-2" htmlFor="email">Email*</Label>
-                    <Input className="rounded" id='email' type="text" {...register("email", { required: false, pattern: /^\S+@\S+$/i })} />
+                    <Input disabled={isSending} className="rounded" id='email' type="text" {...register("email", { required: false, pattern: /^\S+@\S+$/i })} />
                 </div>
                 <div className='p-4'>
                     <Label className="mb-2" htmlFor="phone">Numéro de Télephone</Label>
-                    <Input className="rounded" id='phone' type="tel" {...register("phone", { minLength: 6, maxLength: 12 })} />
+                    <Input disabled={isSending} className="rounded" id='phone' type="tel" {...register("phone", { minLength: 6, maxLength: 12 })} />
                 </div>
                 <div className='p-4'>
                     <Label className="mb-2" htmlFor="society">Société</Label>
-                    <Input className="rounded" id='society' type="text"  {...register("society")} />
+                    <Input disabled={isSending} className="rounded" id='society' type="text"  {...register("society")} />
                 </div>
                 <div></div>
                 <FormField 
@@ -60,7 +78,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
                     render={({ field }) => (
                         <div className='p-4'>
                             <Label className="mb-2" htmlFor="projectType">Type de Projet*</Label>
-                            <Select onValueChange={field.onChange} {...register("budget", {required: true})} defaultValue={field.value}>
+                            <Select disabled={isSending} onValueChange={field.onChange} {...register("budget", {required: true})} defaultValue={field.value}>
                                 <SelectTrigger className="w-full rounded">
                                     <SelectValue  placeholder="Quel type de projet ?" />
                                 </SelectTrigger>
@@ -83,7 +101,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
                     render={({ field }) => (
                         <div className='p-4'>
                             <Label className="mb-2" htmlFor="budjet">Votre budget*</Label>
-                            <Select onValueChange={field.onChange} {...register("budget", {required: true})} defaultValue={field.value} >
+                            <Select disabled={isSending} onValueChange={field.onChange} {...register("budget", {required: true})} defaultValue={field.value} >
                                 <SelectTrigger id="budjet" className="w-full rounded">
                                     <SelectValue placeholder="Choisissez votre budget" />
                                 </SelectTrigger>
@@ -101,14 +119,16 @@ export const ContactForm = ({ className }: { className?: string }) => {
                 />
                 <div className='p-4 col-span-2'>
                     <Label className="mb-2" htmlFor="projectInfo">Information sur votre projet</Label>
-                    <Textarea className='h-20 rounded' id="projectInfo" {...register('projectInfo')} />
+                    <Textarea disabled={isSending} className='h-20 rounded' id="projectInfo" {...register('projectInfo')} />
                 </div>
                 <Typography.Text className='m-4 text-white/50 leading-0! text-sm col-span-2'>* Champ obligatoire</Typography.Text>
-                <Button className="relative m-4 w-fit rounded-full px-6 py-5" type="submit" variant="outline">
+                
+                <Button disabled={isSending} className={`relative m-4 w-fit rounded-full px-6 disabled py-5`} type="submit"  variant="outline">
                     Lancer mon projet
                     <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
                 </Button>
             </form>
         </Form>
+       
     );
 }
