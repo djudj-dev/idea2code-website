@@ -26,7 +26,7 @@ const mailOptionGenerator = ({
     society
 }: z.infer<typeof formSchema>) => {
     const from = process.env.EMAIL_FROM;
-    const to = `${process.env.EMAIL_FOR1}, ${process.env.EMAIL_FOR2}`;
+    const to = process.env.EMAIL_FOR;
     const subject = `Contact projet: ${projectType}`
     const text = `
         Prise de contact pour un projet de type : ${projectType}
@@ -54,11 +54,10 @@ const mailOptionGenerator = ({
 
 export const POST: NextApiHandler = async (
   req,
-  res
+  res: any
 ) => {
-
-  // @ts-ignore
-  const data  = await req.json();
+  // super affreux je sais
+  const data  = await (req as any).json() ;
   const formData = formSchema.parse(data)
 
   const mailPayload = mailOptionGenerator(formData)
