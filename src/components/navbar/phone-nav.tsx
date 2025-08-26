@@ -4,7 +4,9 @@ import { MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Typography } from '@/components/typography';
+import i2cLogo from "@/../public/i2c-Logo.svg"
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import Image from 'next/image';
 
 export const PhoneNav = ({
     links,
@@ -17,14 +19,14 @@ export const PhoneNav = ({
     return (
         <nav
             data-cy="phone-nav"
-            className=" md:hidden w-full h-12 bg-(--background) fixed z-30 border-b-1 border-b-white/15 px-4 py-2 flex items-center justify-between"
+            className=" md:hidden w-full bg-(--background) fixed z-30 border-b-1 border-b-white/15 px-4 py-2 flex items-center justify-between"
         >
             <Link href="/">
-                <Typography.Lead>IdeaToCode</Typography.Lead>
+                <Image src={i2cLogo} alt="IdeaToCode logo" className="max-h-10 rounded w-auto"/>
             </Link>
             <Sheet open={open} defaultOpen={false} onOpenChange={setOpen}>
                 <SheetTrigger asChild data-cy="phone-menu-input">
-                    <MenuIcon className="size-6 " />
+                    <MenuIcon className="size-8 " />
                 </SheetTrigger>
 
                 <SheetContent
@@ -39,12 +41,12 @@ export const PhoneNav = ({
                     </SheetHeader>
                     <div className=" flex w-full flex-col items-start justify-center text-left p-4">
                         {links.map(({ text, url }, index) => (
-                            <Link className="first:pt-0 mt-2" key={index} href={url} scroll={true} onClick={() => setOpen(false)}>
-                                <Typography.Text >{text}/</Typography.Text>
+                            <Link className="first:pt-0 first:mt-0 mt-2" key={index} href={url} scroll={true} onClick={() => setOpen(false)}>
+                                <Typography.Text className='text-xl'>{text}/</Typography.Text>
                             </Link>
                         ))}
                     </div>
-                    <SheetClose data-cy="phone-menu-close" />
+                    <SheetClose data-cy="phone-menu-close"/>
                 </SheetContent>
             </Sheet>
         </nav>

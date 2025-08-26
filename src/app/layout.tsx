@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Idea To Code",
+  title: "IdeaToCode",
   description: "desc",
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        <main className="py-12 p-4 md:px-24">
+        <main className="p-4 py-10 lg:py-14 md:px-24">
           {children}
         </main>
         <Footer />

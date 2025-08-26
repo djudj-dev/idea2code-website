@@ -1,20 +1,22 @@
 import Link from "next/link";
 import { Typography } from "../typography";
+import Image from "next/image";
+import i2cLogo from "@/../public/i2c-Logo.svg"
 
 export const DesktopNav = ({
     links,
 }: {
     links: { text: string; url: string }[];
 }) => (
-    <nav className=" hidden w-full h-12 bg-(--background) fixed z-30 border-b-1 border-b-white/15 px-4 py-2 md:flex justify-between">
+    <nav className=" hidden w-full bg-(--background) fixed z-30 border-b-1 border-b-white/15 px-4 py-4 md:flex justify-between">
         <Link href="/">
-            <Typography.Lead>IdeaToCode</Typography.Lead>
+           <Image src={i2cLogo} alt="IdeaToCode logo" className="max-h-14 rounded w-auto"/>
         </Link>
-        <div className="flex gap-4">
+        <div className="flex gap-4 my-auto">
             {
                 links.map(({ text, url }, index) =>
                     <Link key={index} href={url}>
-                        <Typography.Text className="mt-0!">{text}/</Typography.Text>
+                        <Typography.Text className="mt-0! text-2xl mr-4 font-light">{text}/</Typography.Text>
                     </Link>)
             }
         </div>

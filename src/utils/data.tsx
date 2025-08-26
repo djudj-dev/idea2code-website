@@ -43,7 +43,7 @@ export const servicesData = {
         desc: `Page d'atterrissage optimisée pour transformer vos visiteurs en clients. Design moderne, contenu persuasif et expérience utilisateur parfaite pour maximiser vos conversions.`,
         values: ['Taux de conversion optimisé', 'Design responsive et moderne', 'Temps de chargement litra-rapide', 'Intégration analytics et tracking'],
         stack: ['Nextjs', 'Tailwind', 'Typescript'],
-        button: { text: 'Obtenir devis', link: '/' },
+        button: { text: 'Obtenir devis', link: '/contact' },
         price: 'A Partir de 500€'
     },
     vitrineSite: {
@@ -52,7 +52,7 @@ export const servicesData = {
         desc: `Vitrine digitale complète pour présenter votre activité avec élégance. Multi-pages, optimisé SEO et conçu pour renforcer votre crédibilité et attirer de nouveaux clients.`,
         values: ['Présence professionnelle en ligne', 'Optimisation SEO complète', 'Gestion de contenu simplifiée', 'Compatible tous appareils'],
         stack: ['Nextjs', 'Strapi', 'React', 'Tailwind', 'Typescript'],
-        button: { text: 'Obtenir devis', link: '/' },
+        button: { text: 'Obtenir devis', link: '/contact' },
         price: 'A Partir de 800€'
     },
     webapp: {
@@ -61,7 +61,7 @@ export const servicesData = {
         desc: `Application web complète avec tableau de bord, gestion utilisateurs, paiements et toutes les fonctionnalités métier spécifiques à votre business. Architecture scalable et sécurisée.`,
         values: ['Solution métier personnalisée', 'Monétisation intégrée', 'Évolutivité garantie', 'Sécurité et performance'],
         stack: ['Nextjs', 'React', 'Tailwind', 'Typescript', 'Nodejs', 'Strapi', 'Pgsql', 'Docker', 'CI/CD'],
-        button: { text: 'Obtenir devis', link: '/' },
+        button: { text: 'Obtenir devis', link: '/contact' },
         price: 'A Partir de 2000€'
     },
     intervention: {
@@ -70,7 +70,7 @@ export const servicesData = {
         desc: `Développement de nouvelles fonctionnalités ou intervention technique sur votre application existante. Audit, optimisation, corrections et évolutions pour maintenir votre avantage concurrentiel.`,
         values: [`Valorisation de l'existant`, 'Nouvelles fonctionnalités rapidement', 'Optimisation des performances', 'Maintenance technique assurée'],
         stack: ['Adaptable à votre stack existante', 'Python', 'Php', 'React'],
-        button: { text: 'Obtenir devis', link: '/' },
+        button: { text: 'Obtenir devis', link: '/contact' },
         price: 'A Partir de 280€/jour'
     }
 }

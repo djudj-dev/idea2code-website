@@ -29,10 +29,12 @@ const Home = () => (
             {string.hero.title2}
           </Typography.Header1>
           <Typography.Text className="mt-4! md:mt-8! md:font-normal font-thin">{string.hero.desc}</Typography.Text>
-          <Button variant="outline" className="relative cursor-pointer rounded-full border-(--secondary) my-4 md:my-12">
-            {string.hero.button}
-            <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
-          </Button>
+          <Link href={'/contact'}>
+            <Button variant="outline" className="relative cursor-pointer rounded-full border-(--secondary) my-4 md:my-12">
+              {string.hero.button}
+              <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="h-[100vw] md:h-[50vw] md:w-[50vw] max-h-[700px] max-w-[700px] relative overflow-hidden">
@@ -197,10 +199,12 @@ const Home = () => (
           {string.section4.text}
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="bg-black/15 relative cursor-pointer rounded-full ">
-            {string.section4.button}
-            <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
-          </Button>
+          <Link href={'/contact'}>
+            <Button variant="outline" className="bg-black/15 relative cursor-pointer rounded-full ">
+              {string.section4.button}
+              <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
+            </Button>
+          </Link>
         </CardFooter>
         <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
       </Card>
