@@ -61,11 +61,7 @@ const rateLimit = new Ratelimit({
 export const POST = async (req: NextRequest) => {
  
   const ip = req.headers.get('x-forwarded-for') || '127.0.0.1'
-
-  console.log('ip :', ip)
   const redisData = await rateLimit.limit(`ratelimit_${ip}`);
-
-  console.log(redisData)
 
   if(!redisData.success) {
     return Response.json(
@@ -80,7 +76,7 @@ export const POST = async (req: NextRequest) => {
   const formData = formSchema.parse(data)
 
   const mailPayload = mailOptionGenerator(formData)
-  const info = await transporter.sendMail(mailPayload);
+  await transporter.sendMail(mailPayload);
 
   return Response.json(
      { message: 'Email send' },
