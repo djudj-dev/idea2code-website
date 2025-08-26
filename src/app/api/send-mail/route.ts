@@ -1,6 +1,5 @@
 import { formSchema } from "@/lib/models";
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import nodemailer from "nodemailer"
 import z from "zod";
 
@@ -52,18 +51,14 @@ const mailOptionGenerator = ({
     }
 }
 
-export const POST: NextApiHandler = async (
-  req,
-  res: any
-) => {
-  // super affreux je sais
-  const data  = await (req as any).json() ;
+export const POST = async (req: NextRequest) => {
+  const data  = await req.json();
   const formData = formSchema.parse(data)
 
   const mailPayload = mailOptionGenerator(formData)
   const info = await transporter.sendMail(mailPayload);
 
-  return NextResponse.json(
+  return Response.json(
     {info: info },
     {
       status: 200,
