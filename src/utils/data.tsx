@@ -150,7 +150,7 @@ export const ProjectData: ProjectCardProps[] = [
         title: 'Developpement Micro SaaS Signature Email',
         dates: 'mai 2023 - juin 2023',
         tags: ['Typescript', 'Nodejs', 'React'],
-        description: `Développement d'une mini application web génératrice de signature électronique email pour l’équipe commercial`,
+        description: `Développement d'une mini application web génératrice de signature électronique email pour l’équipe commerciale`,
         image: Lily.src
     },
 ]

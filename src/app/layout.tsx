@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "IdeaToCode",
-  description: "desc",
+  description: "IdeaToCode accompagne les entreprises et TPE dans la création de sites vitrines, applications web et solutions digitales",
 };
 
 export default function RootLayout({
