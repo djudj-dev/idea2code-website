@@ -38,6 +38,9 @@ importers:
       cobe:
         specifier: ^0.6.4
         version: 0.6.4
+      google:
+        specifier: link:@next/third-parties/google
+        version: link:@next/third-parties/google
       lucide-react:
         specifier: ^0.539.0
         version: 0.539.0(react@19.1.0)
