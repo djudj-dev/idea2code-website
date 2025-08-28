@@ -4,7 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "sonner";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics }from '@next/third-parties/google'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
