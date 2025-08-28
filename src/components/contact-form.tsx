@@ -15,6 +15,7 @@ import { formSchema } from '@/lib/models';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { Send } from 'lucide-react';
 
 
 export const ContactForm = ({ className }: { className?: string }) => {
@@ -36,7 +37,10 @@ export const ContactForm = ({ className }: { className?: string }) => {
                 body: JSON.stringify(data)
             }).then((v) => {
                 toast(
-                    "📧 Email envoyé !",
+                    <div className="flex items-center">
+                        <Send/>
+                        <Typography.Large>Email envoyé !</Typography.Large>
+                    </div>,
                     {
                         className: 'z-50 text-white! bg-card! border-white/15!',
                         duration: 2000,
@@ -64,7 +68,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
                     <Input disabled={isSending} className="rounded" id='email' type="text" {...register("email", { required: false, pattern: /^\S+@\S+$/i })} />
                 </div>
                 <div className='p-4'>
-                    <Label className="mb-2" htmlFor="phone">Numéro de Télephone</Label>
+                    <Label className="mb-2" htmlFor="phone">Numéro de Téléphone</Label>
                     <Input disabled={isSending} className="rounded" id='phone' type="tel" {...register("phone", { minLength: 6, maxLength: 12 })} />
                 </div>
                 <div className='p-4'>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "sonner";
+import { GoogleAnalytics }from '@next/third-parties/google'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "IdeaToCode",
-  description: "desc",
+  description: "IdeaToCode accompagne les entreprises et TPE dans la création de sites vitrines, applications web et solutions digitales",
 };
 
 export default function RootLayout({
@@ -27,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="GTM-5JBQCDX6" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
