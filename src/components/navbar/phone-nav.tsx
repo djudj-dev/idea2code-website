@@ -1,12 +1,12 @@
 'use client';
 
 import { MenuIcon } from 'lucide-react';
-import Link from 'next/link';
 import { useState } from 'react';
 import { Typography } from '@/components/typography';
 import i2cLogo from "@/../public/i2c-Logo.svg"
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import Image from 'next/image';
+import { LinkTrack } from '../link-track';
 
 export const PhoneNav = ({
     links,
@@ -21,9 +21,9 @@ export const PhoneNav = ({
             data-cy="phone-nav"
             className=" md:hidden w-full bg-(--background) fixed z-30 border-b-1 border-b-white/15 px-4 py-2 flex items-center justify-between"
         >
-            <Link href="/">
+            <LinkTrack eventName='navigation' href="/">
                 <Image src={i2cLogo} alt="IdeaToCode logo" className="max-h-10 rounded w-auto"/>
-            </Link>
+            </LinkTrack>
             <Sheet open={open} defaultOpen={false} onOpenChange={setOpen}>
                 <SheetTrigger asChild data-cy="phone-menu-input">
                     <MenuIcon className="size-8 " />
@@ -41,9 +41,9 @@ export const PhoneNav = ({
                     </SheetHeader>
                     <div className=" flex w-full flex-col items-start justify-center text-left p-4">
                         {links.map(({ text, url }, index) => (
-                            <Link className="first:pt-0 first:mt-0 mt-2" key={index} href={url} scroll={true} onClick={() => setOpen(false)}>
+                            <LinkTrack className="first:pt-0 first:mt-0 mt-2" eventName="navigation" key={index} href={url} scroll={true} onClick={() => setOpen(false)}>
                                 <Typography.Text className='text-xl'>{text}/</Typography.Text>
-                            </Link>
+                            </LinkTrack>
                         ))}
                     </div>
                     <SheetClose data-cy="phone-menu-close"/>

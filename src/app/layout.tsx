@@ -4,7 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "sonner";
-import { GoogleAnalytics, GoogleTagManager }from '@next/third-parties/google'
+import { AptabaseProvider } from '@aptabase/react';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,15 +28,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId="G-R1MMHZNCBF" />
-      <GoogleTagManager gtmId="G-R1MMHZNCBF"/>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <AptabaseProvider appKey="A-EU-4649182773">
         <Navbar />
-        <main className="p-4 py-10 lg:py-14 md:px-24">
-          {children}
-        </main>
+          <main className="p-4 py-10 lg:py-14 md:px-24">
+            {children}
+          </main>
+        </AptabaseProvider>
         <Toaster />
         <Footer />
       </body>

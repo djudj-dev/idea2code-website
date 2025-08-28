@@ -16,7 +16,8 @@ import Ozapay from "@/../public/ozapay.png"
 import LilyFaciliteLaVie from '@/../public/lily.svg'
 import Spredict from '@/../public/spredict.svg'
 import Image from 'next/image';
-import Link from 'next/link';
+import { InitPageSession } from '@/components/init-session';
+import { LinkTrack } from '@/components/link-track';
 
 const Home = () => (
   <>
@@ -30,12 +31,12 @@ const Home = () => (
             {string.hero.title2}
           </Typography.Header1>
           <Typography.Text className="mt-4! md:mt-8! md:font-normal font-thin">{string.hero.desc}</Typography.Text>
-          <Link href={'/contact'}>
+          <LinkTrack eventName='home-hero-button' href={'/contact'}>
             <Button variant="outline" className="relative cursor-pointer rounded-full border-(--secondary) my-4 md:my-12">
               {string.hero.button}
               <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
             </Button>
-          </Link>
+          </LinkTrack>
         </div>
       </div>
       <div className="h-[100vw] md:h-[50vw] md:w-[50vw] max-h-[700px] max-w-[700px] relative overflow-hidden">
@@ -87,12 +88,12 @@ const Home = () => (
           <Typography.Text className="mt-0! leading-5! font-thin md:leadin8! md:font-normal">
             {string.section1.text2}
           </Typography.Text>
-          <Link href={'/services'}>
+          <LinkTrack eventName="home-solution-button" href={'/services'}>
             <Button variant="outline" className=" relative cursor-pointer rounded-full mt-4 md:mt-12">
               {string.section1.button}
               <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
             </Button>
-          </Link>
+          </LinkTrack>
         </div>
       </div>
       <Terminal className="md:w-1/2 h-[400px]">
@@ -203,16 +204,17 @@ const Home = () => (
           {string.section4.text}
         </CardContent>
         <CardFooter>
-          <Link href={'/contact'}>
+          <LinkTrack eventName='home-start-button' href={'/contact'}>
             <Button variant="outline" className="bg-black/15 relative cursor-pointer rounded-full ">
               {string.section4.button}
               <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
             </Button>
-          </Link>
+          </LinkTrack>
         </CardFooter>
         <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
       </Card>
     </section>
+    <InitPageSession page="home"/>
   </>
 )
 

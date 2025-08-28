@@ -1,3 +1,4 @@
+import { InitPageSession } from "@/components/init-session";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { Marquee } from "@/components/magicui/marquee";
 import { ProjectCard } from "@/components/project-card";
@@ -36,6 +37,7 @@ const Projects = () => (
                 <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
             </div>
         </section>
+        <InitPageSession page="project"/>
     </>
 )
 

@@ -1,3 +1,4 @@
+import { InitPageSession } from "@/components/init-session";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { ServicesCard } from "@/components/services-card";
@@ -140,6 +141,7 @@ const Services = () => (<>
             </Card>
         </div>
     </section>
+    <InitPageSession page="service"/>
 </>)
 
 export default Services;

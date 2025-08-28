@@ -1,5 +1,5 @@
 import { ProjectCardProps } from "@/components/project-card";
-import { FolderCode, Globe, LayoutPanelLeft, PanelTop, Rocket, Store, Wrench } from "lucide-react";
+import { FolderCode, Globe, Rocket, Store, Wrench } from "lucide-react";
 import NPM from "@/../public/npm.jpg"
 import Lily from "@/../public/lily-bg.jpg"
 import SpredictWebsite from "@/../public/spredict.png"
@@ -43,7 +43,7 @@ export const servicesData = {
         desc: `Transformez vos visiteurs en clients. Une page d’atterrissage moderne et optimisée pour maximiser vos conversions grâce à un design attractif, des contenus percutants et une expérience utilisateur fluide.`,
         values: ['Taux de conversion optimisé', 'Design responsive et professionnel', 'Temps de chargement ultra-rapide', 'Suivi complet via analytics et tracking'],
         stack: ['Nextjs', 'Tailwind', 'Typescript'],
-        button: { text: 'Obtenir un devis', link: '/contact' },
+        button: { text: 'Obtenir un devis', link: '/contact?projectType=landingpage' },
         price: 'A Partir de 500€'
     },
     vitrineSite: {
@@ -52,7 +52,7 @@ export const servicesData = {
         desc: `Mettez en valeur votre activité en ligne. Un site web multi-pages pensé pour renforcer votre crédibilité, améliorer votre visibilité et attirer de nouveaux clients, avec une gestion simple et une optimisation SEO complète.`,
         values: ['Image professionnelle et crédible', 'Optimisation SEO intégrale', 'Gestion de contenu simplifiée', 'Compatibilité tous supports (desktop, mobile, tablette)'],
         stack: ['Nextjs', 'Strapi', 'React', 'Tailwind', 'Typescript'],
-        button: { text: 'Obtenir un devis', link: '/contact' },
+        button: { text: 'Obtenir un devis', link: '/contact?projectType=vitrinewebsite' },
         price: 'A Partir de 800€'
     },
     webapp: {
@@ -61,7 +61,7 @@ export const servicesData = {
         desc: `Votre application web, taillée pour votre business. Un logiciel en ligne évolutif, sécurisé et conçu sur-mesure pour votre activité : tableau de bord, gestion des utilisateurs, paiements, fonctionnalités métier… tout est pensé pour accompagner votre croissance.`,
         values: ['Solution métier 100 % personnalisée', 'Monétisation intégrée (paiements en ligne)', 'Évolutivité garantie (architecture scalable)', 'Performance et sécurité renforcées'],
         stack: ['Nextjs', 'React', 'Tailwind', 'Typescript', 'Nodejs', 'Strapi', 'Pgsql', 'Docker'],
-        button: { text: 'Obtenir un devis', link: '/contact' },
+        button: { text: 'Obtenir un devis', link: '/contact?projectType=SaaS' },
         price: 'A Partir de 2000€'
     },
     intervention: {
@@ -70,7 +70,7 @@ export const servicesData = {
         desc: `Améliorez et faites évoluer vos outils existants. Nous intervenons directement sur vos applications déjà en place pour : ajouter de nouvelles fonctionnalités, corriger les éventuels dysfonctionnements, renforcer les performances et assurer une maintenance continue.`,
         values: [`Valorisation de l'existant`, 'Nouvelles fonctionnalités rapidement', 'Optimisation des performances', 'Maintenance technique assurée'],
         stack: ['Python', 'React', 'Php', 'Adaptable à votre stack'],
-        button: { text: 'Obtenir un devis', link: '/contact' },
+        button: { text: 'Obtenir un devis', link: '/contact?projectType=Intervention' },
         price: 'A Partir de 280€/jour'
     }
 }

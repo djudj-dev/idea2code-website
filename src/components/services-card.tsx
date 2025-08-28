@@ -1,9 +1,9 @@
-import Link from "next/link"
 import { Typography } from "./typography"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { Button } from "./ui/button"
 import { ShineBorder } from "./magicui/shine-border"
 import { TechBadge } from "./tech-badge"
+import { LinkTrack } from "./link-track"
 
 export const ServicesCard = ({
     title,
@@ -62,12 +62,12 @@ export const ServicesCard = ({
         </CardContent>
         <CardFooter className="h-fit flex items-end justify-between pt-4 border-t-1 border-t-white/15">
             <Typography.Large className="font-semibold text-base! md:text-xl!">{price}</Typography.Large>
-            <Link href={button.link}>
+            <LinkTrack eventName='service-card-button' href={button.link}>
                 <Button variant="outline" className="bg-black/15 relative cursor-pointer rounded-full ">
                     {button.text}
                     <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
                 </Button>
-            </Link>
+            </LinkTrack>
         </CardFooter>
         <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
     </Card>

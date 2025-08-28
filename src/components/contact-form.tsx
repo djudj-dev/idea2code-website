@@ -9,24 +9,31 @@ import { Textarea } from './ui/textarea';
 import { ShineBorder } from './magicui/shine-border';
 import { Typography } from './typography';
 import { Form, FormField } from './ui/form';
-import { z } from 'zod'
+import { flattenError, z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { formSchema } from '@/lib/models';
 import { toast } from 'sonner';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { Send } from 'lucide-react';
-
+import { useAptabase } from '@aptabase/react';
 
 export const ContactForm = ({ className }: { className?: string }) => {
+    const searchParams = useSearchParams();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
+        defaultValues: {
+            projectType: z.string().safeParse(searchParams.get('projectType')).data || undefined,
+        },
     });
+
+    const { trackEvent } = useAptabase()
     const { register, handleSubmit } = form;
     const router = useRouter();
-    const [isSending, setSending] = useState(false)
+    const [isSending, setSending] = useState(false);
 
     const onSubmit = (data: z.infer<typeof formSchema>) => {
+        trackEvent('submiting-contact-form');
         setSending(true);
             fetch('/api/send-mail', {
                 headers: {
@@ -49,8 +56,6 @@ export const ContactForm = ({ className }: { className?: string }) => {
                 router.push('/')
             })        
     }
-
-   
 
     return (
         <Form {...form}>
