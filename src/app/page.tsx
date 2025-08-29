@@ -56,7 +56,7 @@ const Home = () => (
                 className="size-28 px-2 mx-2 md:mx-8 rounded fill-primary"
               />
               <SpredictIcon
-                className="Size-14 px-2 mx-2 md:mx-8 rounded"
+                className="w-40 px-2 mx-2 md:mx-8 rounded"
               />
               <img
                 src={DiotSciaci.src}
