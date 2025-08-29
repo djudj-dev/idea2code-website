@@ -59,7 +59,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
 
     return (
         <Form {...form}>
-            <form onSubmit={handleSubmit(onSubmit)} className={`md:grid block grid-rows md:grid-rows-none md:grid-cols-2 m-auto ${className}`}>
+            <form onSubmit={handleSubmit(onSubmit)} className={`xl:grid block grid-rows xl:grid-rows-none xl:grid-cols-2 m-auto ${className}`}>
                 <div className='p-4'>
                     <Label className="mb-2" htmlFor="firstname">Prénom*</Label>
                     <Input disabled={isSending} className="rounded" id='firstname' type="text" {...register("firstName", { required: false, maxLength: 80 })} />

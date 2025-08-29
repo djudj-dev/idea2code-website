@@ -7,7 +7,6 @@ import SpredictWebApp from "@/../public/spredict.webp"
 import DiotSciaci from '@/../public/diot-sciaci-bg.png'
 import { GithubIcon } from "@/components/icons/tech";
 
-
 export const reviews = [
     {
         name: "Freelance",
