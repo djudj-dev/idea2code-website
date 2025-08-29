@@ -56,7 +56,7 @@ export const servicesData = {
         price: 'A Partir de 800€'
     },
     webapp: {
-        title: 'SaaS Sur-Mesure',
+        title: 'SaaS',
         Icon: <FolderCode className="mr-2 size-7" />,
         desc: `Votre application web, taillée pour votre business. Un logiciel en ligne évolutif, sécurisé et conçu sur-mesure pour votre activité : tableau de bord, gestion des utilisateurs, paiements, fonctionnalités métier… tout est pensé pour accompagner votre croissance.`,
         values: ['Solution métier 100 % personnalisée', 'Monétisation intégrée (paiements en ligne)', 'Évolutivité garantie (architecture scalable)', 'Performance et sécurité renforcées'],
@@ -65,7 +65,7 @@ export const servicesData = {
         price: 'A Partir de 2000€'
     },
     intervention: {
-        title: `Evolution d'Apps`,
+        title: `Interventions`,
         Icon: <Wrench className="mr-2 size-7" />,
         desc: `Améliorez et faites évoluer vos outils existants. Nous intervenons directement sur vos applications déjà en place pour : ajouter de nouvelles fonctionnalités, corriger les éventuels dysfonctionnements, renforcer les performances et assurer une maintenance continue.`,
         values: [`Valorisation de l'existant`, 'Nouvelles fonctionnalités rapidement', 'Optimisation des performances', 'Maintenance technique assurée'],
