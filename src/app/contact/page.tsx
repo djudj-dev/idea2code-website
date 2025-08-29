@@ -51,7 +51,7 @@ const Contact = () => (
                             Restons Connectés
                         </AuroraText>
                         <Typography.Text>
-                            Suivez l'actualité de mes projets, découvrez mes dernières réalisations et bénéficiez de conseils techniques réguliers sur mes différents réseaux. 
+                            {`Suivez l'actualité de mes projets, découvrez mes dernières réalisations et bénéficiez de conseils techniques réguliers sur mes différents réseaux. `}
                         </Typography.Text>
                        <a target="_blank" href={'mailto:contact.ideatocode@gmail.com'}>
                             <Button variant="outline" className="relative cursor-pointer rounded-full border-(--secondary) px-6! my-4 mr-2">
