@@ -38,7 +38,7 @@ export const reviews = [
 export const servicesData = {
     landingPage: {
         title: 'Landing Page',
-        Icon: <Rocket className="mr-2 size-7" />,
+        Icon: <Rocket className="mr-2 size-7 text-white" />,
         desc: `Transformez vos visiteurs en clients. Une page d’atterrissage moderne et optimisée pour maximiser vos conversions grâce à un design attractif, des contenus percutants et une expérience utilisateur fluide.`,
         values: ['Taux de conversion optimisé', 'Design responsive et professionnel', 'Temps de chargement ultra-rapide', 'Suivi complet via analytics et tracking'],
         stack: ['Nextjs', 'Tailwind', 'Typescript'],
@@ -47,7 +47,7 @@ export const servicesData = {
     },
     vitrineSite: {
         title: 'Site Vitrine',
-        Icon: <Store className="mr-2 size-7" />,
+        Icon: <Store className="mr-2 size-7 text-white" />,
         desc: `Mettez en valeur votre activité en ligne. Un site web multi-pages pensé pour renforcer votre crédibilité, améliorer votre visibilité et attirer de nouveaux clients, avec une gestion simple et une optimisation SEO complète.`,
         values: ['Image professionnelle et crédible', 'Optimisation SEO intégrale', 'Gestion de contenu simplifiée', 'Compatibilité tous supports (desktop, mobile, tablette)'],
         stack: ['Nextjs', 'Strapi', 'React', 'Tailwind', 'Typescript'],
@@ -56,7 +56,7 @@ export const servicesData = {
     },
     webapp: {
         title: 'SaaS',
-        Icon: <FolderCode className="mr-2 size-7" />,
+        Icon: <FolderCode className="mr-2 size-7 text-white" />,
         desc: `Votre application web, taillée pour votre business. Un logiciel en ligne évolutif, sécurisé et conçu sur-mesure pour votre activité : tableau de bord, gestion des utilisateurs, paiements, fonctionnalités métier… tout est pensé pour accompagner votre croissance.`,
         values: ['Solution métier 100 % personnalisée', 'Monétisation intégrée (paiements en ligne)', 'Évolutivité garantie (architecture scalable)', 'Performance et sécurité renforcées'],
         stack: ['Nextjs', 'React', 'Tailwind', 'Typescript', 'Nodejs', 'Strapi', 'Pgsql', 'Docker'],
@@ -65,7 +65,7 @@ export const servicesData = {
     },
     intervention: {
         title: `Interventions`,
-        Icon: <Wrench className="mr-2 size-7" />,
+        Icon: <Wrench className="mr-2 size-7 text-white" />,
         desc: `Améliorez et faites évoluer vos outils existants. Nous intervenons directement sur vos applications déjà en place pour : ajouter de nouvelles fonctionnalités, corriger les éventuels dysfonctionnements, renforcer les performances et assurer une maintenance continue.`,
         values: [`Valorisation de l'existant`, 'Nouvelles fonctionnalités rapidement', 'Optimisation des performances', 'Maintenance technique assurée'],
         stack: ['Python', 'React', 'Php', 'Adaptable à votre stack'],
@@ -124,7 +124,7 @@ export const ProjectData: ProjectCardProps[] = [
             {
                 href: 'https://www.npmjs.com/package/@e2fy/ioredis-zod-om',
                 type: 'Code source',
-                icon: <GithubIcon className="size-5! p-0.25 bg-black rounded-full" />
+                icon: <GithubIcon className="size-5! p-0.25 bg-foreground rounded-full" />
             }
         ],
         image: NPM.src
@@ -139,7 +139,7 @@ export const ProjectData: ProjectCardProps[] = [
             {
                 href: 'https://www.npmjs.com/package/@e2fy/effy-crypto',
                 type: 'Code source',
-                icon: <GithubIcon className="size-5! p-0.25 bg-black rounded-full" />
+                icon: <GithubIcon className="size-5! p-0.25 bg-foreground rounded-full" />
             }
         ],
         image: NPM.src

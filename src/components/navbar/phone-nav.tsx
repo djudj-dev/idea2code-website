@@ -7,6 +7,7 @@ import i2cLogo from "@/../public/i2c-Logo.svg"
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import Image from 'next/image';
 import { LinkTrack } from '../link-track';
+import ThemeSwitch from '../theme-switch';
 
 export const PhoneNav = ({
     links,
@@ -19,7 +20,7 @@ export const PhoneNav = ({
     return (
         <nav
             data-cy="phone-nav"
-            className=" md:hidden w-full bg-(--background) fixed z-30 border-b-1 border-b-white/15 px-4 py-2 flex items-center justify-between"
+            className=" md:hidden w-full bg-(--background) fixed z-30 border-b-1 border-b-[--foreground]/15 px-4 py-2 flex items-center justify-between"
         >
             <LinkTrack eventName='navigation' href="/">
                 <Image src={i2cLogo} alt="IdeaToCode logo" className="max-h-10 rounded w-auto"/>
@@ -40,6 +41,7 @@ export const PhoneNav = ({
                         </SheetTitle>
                     </SheetHeader>
                     <div className=" flex w-full flex-col items-start justify-center text-left p-4">
+                        <ThemeSwitch />
                         {links.map(({ text, url }, index) => (
                             <LinkTrack className="first:pt-0 first:mt-0 mt-2" eventName="navigation" key={index} href={url} scroll={true} onClick={() => setOpen(false)}>
                                 <Typography.Text className='text-xl'>{text}/</Typography.Text>

@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "sonner";
 import { AptabaseProvider } from '@aptabase/react';
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,14 +32,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <AptabaseProvider appKey="A-EU-4649182773">
-        <Navbar />
-          <main className="p-4 py-10 lg:py-14 md:px-24">
-            {children}
-          </main>
-        </AptabaseProvider>
-        <Toaster />
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="ligth"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AptabaseProvider appKey="A-EU-4649182773">
+            <Navbar />
+            <main className="p-4 py-10 lg:py-14 md:px-24">
+              {children}
+            </main>
+          </AptabaseProvider>
+          <Toaster />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -11,15 +11,15 @@ import { Suspense } from "react";
 const Contact = () => (
     <>
         <section className="w-full pb-4 md:pb-8 flex flex-col justify-center">
-            <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 text-3xl md:text-4xl font-extrabold tracking-tight lg:text-5xl font-light">
+            <AuroraText colors={["var(--foreground)", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 text-3xl md:text-4xl font-extrabold tracking-tight lg:text-5xl font-light">
                 Donnons Vie à Votre Projet
             </AuroraText>
-            <Typography.Lead className="mt-4 pb-4 text-base! md:text-lg! border-b-1 border-b-white/15">
+            <Typography.Lead className="mt-4 pb-4 text-base! md:text-lg! border-b-1 border-b-[--foreground]/15">
                 Échangeons sur votre vision et transformons-la en solution digitale performante
             </Typography.Lead>
             <div className="md:grid md:grid-cols-2 md:gap-6">
-                <div className="md:order-2 order-1 relative bg-card p-6 rounded-[0.625rem] border-white/15 mt-6 max-w-[30rem] lg:max-w-[40rem] m-auto">
-                    <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light!">
+                <div className="md:order-2 order-1 relative bg-card p-6 rounded-[0.625rem] border-[--foreground]/15 mt-6 max-w-[30rem] lg:max-w-[40rem] m-auto">
+                    <AuroraText colors={["var(--foreground)", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light!">
                         Formulaire de Contact
                     </AuroraText>
                     <Suspense>
@@ -29,7 +29,7 @@ const Contact = () => (
                 </div>
                 <div className="px-2 pt-12 md:px-0 md:pt-0">
                     <div className="h-fit">
-                        <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className="mt-6 scroll-m-20 text-2xl md:text-3xl font-extrabold tracking-tight font-light">
+                        <AuroraText colors={["var(--foreground)", "#5200FF", "#FF2DF7"]} className="mt-6 scroll-m-20 text-2xl md:text-3xl font-extrabold tracking-tight font-light">
                             Échangeons Directement Sur Votre Projet
                         </AuroraText>
                         <Typography.Text>
@@ -47,7 +47,7 @@ const Contact = () => (
                         </a>
                     </div>
                     <div className="h-fit">
-                        <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 text-2xl md:text-3xl font-extrabold tracking-tight font-light">
+                        <AuroraText colors={["var(--foreground)", "#5200FF", "#FF2DF7"]} className=" mt-12 scroll-m-20 text-2xl md:text-3xl font-extrabold tracking-tight font-light">
                             Restons Connectés
                         </AuroraText>
                         <Typography.Text>

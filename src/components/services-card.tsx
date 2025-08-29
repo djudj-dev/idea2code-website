@@ -27,18 +27,18 @@ export const ServicesCard = ({
             <CardTitle className="pb-2">
                 <div className="p-2 px-4 h-fit w-fit flex items-center text-xl md:text-2xl flex rounded-full bg-gradient-to-r from-[#FF2DF7] via-[#5200FF] to-[#00F0FF]">
                     {Icon}
-                    <Typography.Header3 className="pr-4 font-medium!">
+                    <Typography.Header3 className="pr-4 font-medium! text-white">
                         {title}
                     </Typography.Header3>
                 </div>
             </CardTitle>
             <CardDescription className="mt-3">
-                <Typography.Text className="leading-5! md:leading-6! text-xs! md:text-base! text-white">
+                <Typography.Text className="leading-5! md:leading-6! text-xs! md:text-base! text-[--foreground]">
                     {desc}
                 </Typography.Text>
             </CardDescription>
         </CardHeader>
-        <CardContent className="h-full border-t-1 border-t-white/15 py-2 md:py-4">
+        <CardContent className="h-full border-t-1 border-t-[--foreground]/15 py-2 md:py-4">
             <div>
                 <Typography.Lead className="font-semibold text-base! md:text-xl!">
                     Valeur ajoutée
@@ -60,7 +60,7 @@ export const ServicesCard = ({
                 </div>
             </div>
         </CardContent>
-        <CardFooter className="h-fit flex items-end justify-between pt-4 border-t-1 border-t-white/15">
+        <CardFooter className="h-fit flex items-end justify-between pt-4 border-t-1 border-t-[--foreground]/15">
             <Typography.Large className="font-semibold text-base! md:text-xl!">{price}</Typography.Large>
             <LinkTrack eventName='service-card-button' href={button.link}>
                 <Button variant="outline" className="bg-black/15 relative cursor-pointer rounded-full ">

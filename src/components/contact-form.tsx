@@ -49,7 +49,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
                         <Typography.Large>Email envoyé !</Typography.Large>
                     </div>,
                     {
-                        className: 'z-50 text-white! bg-card! border-white/15!',
+                        className: 'z-50 text-[--foreground]! bg-card! border-[--foreground]/15!',
                         duration: 2000,
                     }
                 )
@@ -130,7 +130,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
                     <Label className="mb-2" htmlFor="projectInfo">Information sur votre projet</Label>
                     <Textarea disabled={isSending} className='h-20 rounded' id="projectInfo" {...register('projectInfo')} />
                 </div>
-                <Typography.Text className='m-4 text-white/50 leading-0! text-sm col-span-2'>* Champ obligatoire</Typography.Text>
+                <Typography.Text className='m-4 text-[--foreground]/50 leading-0! text-sm col-span-2'>* Champ obligatoire</Typography.Text>
                 
                 <Button disabled={isSending} className={`relative m-4 w-fit rounded-full px-6 disabled py-5`} type="submit"  variant="outline">
                     Lancer mon projet

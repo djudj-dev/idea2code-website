@@ -14,17 +14,18 @@ import { string } from "@/utils/string";
 import DiotSciaci from "@/../public/diot-sciaci.png"
 import Ozapay from "@/../public/ozapay.png"
 import LilyFaciliteLaVie from '@/../public/lily.svg'
-import Spredict from '@/../public/spredict.svg'
 import Image from 'next/image';
 import { InitPageSession } from '@/components/init-session';
 import { LinkTrack } from '@/components/link-track';
+import { SpredictIcon } from '@/components/icons/network/Spredict';
+import { LilyIcon } from '@/components/icons/network/Lily';
 
 const Home = () => (
   <>
     <section className="w-full py-4 md:py-8 flex flex-col-reverse md:flex-row">
       <div className=" md:w-1/2 flex">
-        <div className="md:w-3/4 relative my-auto flex flex-col items-start border-b-1 border-b-white/15">
-          <AuroraText colors={["#00F0FF", "#5200FF", "#FF2DF7"]} className="scroll-m-20 text-3xl md:text-4xl font-extrabold tracking-tight lg:text-5xl font-light">
+        <div className="md:w-3/4 relative my-auto flex flex-col items-start border-b-1 border-b-[--foreground]/15">
+          <AuroraText colors={["var(--foreground)", "#5200FF", "#FF2DF7"]} className="scroll-m-20 text-3xl md:text-4xl font-extrabold tracking-tight lg:text-5xl font-light">
             {string.hero.title1}
           </AuroraText>
           <Typography.Header1 className="z-10 md:mt-6 font-light">
@@ -51,15 +52,11 @@ const Home = () => (
           </Typography.Header3>
           <div className="relative mt-6">
             <div className="flex items-center justify-center flex-wrap">
-              <Image
-                src={LilyFaciliteLaVie}
-                className="h-18 w-auto px-2 mx-2 md:mx-8 rounded"
-                alt={'lily facilite la vie'}
+              <LilyIcon
+                className="size-28 px-2 mx-2 md:mx-8 rounded fill-primary"
               />
-              <Image
-                src={Spredict}
-                className="h-20 w-40 px-2 mx-2 md:mx-8 rounded"
-                alt={'spredict'}
+              <SpredictIcon
+                className="Size-14 px-2 mx-2 md:mx-8 rounded"
               />
               <img
                 src={DiotSciaci.src}
@@ -68,7 +65,7 @@ const Home = () => (
               />
               <img
                 src={Ozapay.src}
-                className="h-12 w-auto px-2 mx-2 md:mx-8 rounded-full"
+                className="h-10 w-auto px-2 mx-2 md:mx-8 rounded-full"
                 alt={'diot-sciaci'}
               />
             </div>
@@ -78,8 +75,8 @@ const Home = () => (
     </section>
     <section className="w-full py-4 md:py-8 flex flex-col-reverse md:flex-row justify-left items-center gap-6">
       <div className="md:w-1/2 flex items-center">
-        <div className="md:w-3/4 my-auto py-4 md:py-12 flex flex-col justify items-start md:border-b-1 md:border-b-white/15">
-          <AuroraText colors={["#00F0FF", "#7a3dffff", "#ffffffff"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light!">
+        <div className="md:w-3/4 my-auto py-4 md:py-12 flex flex-col justify items-start md:border-b-1 md:border-b-[--foreground]/15">
+          <AuroraText colors={["var(--foreground)", "#5200FF", "#FF2DF7"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light!">
             {string.section1.title}
           </AuroraText>
           <Typography.Text className=" mt-4! md:mt-8! leading-5! md:leadin8! md:font-normal font-thin">
@@ -134,7 +131,7 @@ const Home = () => (
     </section>
     <section className="w-full py-4 md:py-8 mb-12">
       <div className="w-full m-auto mb-12">
-        <AuroraText colors={["#00F0FF", "#7a3dffff", "#ffffffff"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light! w-full">
+        <AuroraText colors={["var(--foreground)", "#5200FF", "#FF2DF7"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light! w-full">
           Pourquoi nous ?
         </AuroraText>
       </div>
@@ -173,7 +170,7 @@ const Home = () => (
     </section>
     <section className="w-full py-4 md:py-8">
       <div className="w-full m-auto mb-10">
-        <AuroraText colors={["#00F0FF", "#7a3dffff", "#ffffffff"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light! w-full">
+        <AuroraText colors={["var(--foreground)", "#5200FF", "#FF2DF7"]} className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-light! w-full">
           {string.section3.title}
         </AuroraText>
       </div>
@@ -195,17 +192,17 @@ const Home = () => (
         color={"#00F0FF"}
       />
       <Card className="relative overflow-hidden w-full m-auto rounded-[0.625rem] border-0 bg-gradient-to-r from-[#FF2DF7] via-[#5200FF] to-[#00F0FF] pt-8 md:p-12">
-        <CardHeader className="flex items-center ">
+        <CardHeader className="flex items-center text-white">
           <CardTitle className="text-2xl">
             {string.section4.title}
           </CardTitle>
         </CardHeader>
-        <CardContent className=" md:font-normal">
+        <CardContent className=" md:font-normal text-white">
           {string.section4.text}
         </CardContent>
         <CardFooter>
           <LinkTrack eventName='home-start-button' href={'/contact'}>
-            <Button variant="outline" className="bg-black/15 relative cursor-pointer rounded-full ">
+            <Button variant="outline" className="bg-black/15 relative cursor-pointer rounded-full text-white">
               {string.section4.button}
               <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
             </Button>
