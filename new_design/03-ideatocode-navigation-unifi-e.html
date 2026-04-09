@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets & Réalisations — IdeaToCode Studio Tech Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://api.fontshare.com/v2/css?f[]=space-grotesk@300,400,500,600,700&f[]=satoshi@300,400,500,700&display=swap');
+
+        :root {
+            --bg: #0f1419;
+            --surface: #1a1f2e;
+            --primary: #3186ff;
+            --secondary: #2daeb8;
+            --border: #2a3544;
+            --text-main: #ffffff;
+            --text-muted: #b0b5c0;
+            --ease: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            transition: all 0.4s var(--ease);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(49, 134, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 99px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .tech-badge {
+            border-color: var(--primary);
+            color: var(--text-main);
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(15, 20, 25, 0.8) 100%);
+        }
+
+        .testimonial-card {
+            background: rgba(26, 31, 46, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s var(--ease);
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--secondary);
+            background: rgba(26, 31, 46, 0.8);
+        }
+
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- NAVIGATION -->
+        <header class="fixed top-0 left-0 right-0 z-50 bg-[#0f1419]/80 backdrop-blur-xl border-b border-[#2a3544]">
+            <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <div class="flex items-center gap-12">
+                    <a href="https://p.superdesign.dev/draft/894d95cd-de76-4034-a361-8747a83eea18" id="nav-logo" class="flex items-center gap-3 group">
+                        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/349d8a18-70ab-4f8b-8e73-984fbed2571f/1775733787137-9360be51/logo-v2.png" alt="Logo" class="h-9 w-auto grayscale brightness-200 group-hover:grayscale-0 transition-all">
+                        <span class="font-display font-bold text-lg tracking-tight">IdeaToCode</span>
+                    </a>
+                    
+                    <div class="hidden lg:flex items-center gap-8">
+                        <a href="https://p.superdesign.dev/draft/29cdc1d3-361e-4183-8237-87c7aaea954f" id="nav-link-services" class="text-sm font-medium text-[#b0b5c0] hover:text-white transition-colors">Services</a>
+                        <a href="https://p.superdesign.dev/draft/9fcfea52-5962-4eb3-885b-66dfc56b412a" id="nav-link-projets" class="text-sm font-medium text-white transition-colors">Projets</a>
+                        <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="nav-link-contact" class="text-sm font-medium text-[#b0b5c0] hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+
+                <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="nav-cta-header" class="hidden sm:inline-flex items-center justify-center h-10 px-6 rounded-full bg-white text-[#0f1419] text-sm font-bold hover:bg-[#3186ff] hover:text-white transition-all">
+                    Démarrer un projet
+                </a>
+            </nav>
+        </header>
+
+        <main class="flex-1 pt-20">
+            <!-- HERO SECTION -->
+            <section class="relative py-16 md:py-24 bg-[#0f1419]">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-3xl">
+                        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tighter leading-[0.95] mb-6 uppercase">
+                            Projets & <span class="text-[#3186ff]">Réalisations</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-[#b0b5c0] leading-relaxed">
+                            Découvrez comment j'ai transformé des idées complexes en succès digitaux durables.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROJECTS GRID -->
+            <section class="py-12 px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Project 1 -->
+                        <article class="project-card group">
+                            <div class="relative h-48 bg-gradient-to-br from-[#3186ff] to-[#ff7e5f] flex items-center justify-center p-8">
+                                <div class="bg-white/10 backdrop-blur-md rounded-full w-24 h-24 flex items-center justify-center border border-white/20">
+                                    <span class="text-white font-bold text-xs text-center">DiotSiaci<br>CLC</span>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <p class="text-[10px] font-bold tracking-widest text-[#b0b5c0] uppercase mb-2">Juillet 2025</p>
+                                <h3 class="text-xl font-bold mb-3 leading-tight">UX/UI React Integration</h3>
+                                <p class="text-sm text-[#b0b5c0] line-clamp-3 mb-6 flex-1">
+                                    Intégration complète d'UI ou de la refonte d'une application interne avec une approche design-first.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">TypeScript</span>
+                                    <span class="tech-badge">React</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 2 -->
+                        <article class="project-card group">
+                            <div class="relative h-48 bg-gradient-to-br from-[#6b21a8] to-[#2daeb8] flex flex-col items-center justify-center p-8 overflow-hidden">
+                                <h4 class="text-4xl font-display font-black text-white/20 uppercase absolute top-4 left-4">SPREDICT</h4>
+                                <div class="relative z-10 text-center">
+                                    <p class="text-white font-bold text-xl tracking-tight uppercase">Predict Together</p>
+                                    <p class="text-white/60 text-xs italic">Win Big Together!</p>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <p class="text-[10px] font-bold tracking-widest text-[#b0b5c0] uppercase mb-2">Oct 2024 - Nov 2024</p>
+                                <h3 class="text-xl font-bold mb-3 leading-tight">Development Appli Web3</h3>
+                                <p class="text-sm text-[#b0b5c0] line-clamp-3 mb-6 flex-1">
+                                    Développement d'une DApp de prédiction sportive qui interagie avec une blockchain privée.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">TypeScript</span>
+                                    <span class="tech-badge">React</span>
+                                    <span class="tech-badge">Next.js</span>
+                                    <span class="tech-badge">Node.js</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 3 -->
+                        <article class="project-card group">
+                            <div class="relative h-48 bg-gradient-to-br from-[#1e1b4b] to-[#2daeb8] flex items-center justify-center p-8">
+                                <div class="text-center">
+                                    <p class="text-white text-sm font-bold mb-1">Predict everything,</p>
+                                    <p class="text-white text-lg font-black uppercase">Win every time.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <p class="text-[10px] font-bold tracking-widest text-[#b0b5c0] uppercase mb-2">Septembre 2024</p>
+                                <h3 class="text-xl font-bold mb-3 leading-tight">Site Vitrine Appli Web3</h3>
+                                <p class="text-sm text-[#b0b5c0] line-clamp-3 mb-6 flex-1">
+                                    Plateforme vitrine pour application décentralisée avec production de contenus sportifs.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">Next.js</span>
+                                    <span class="tech-badge">Tailwind</span>
+                                    <span class="tech-badge">Web3</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 4 -->
+                        <article class="project-card group">
+                            <div class="relative h-48 bg-[#1e293b] flex items-center justify-center p-8 overflow-hidden">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-4xl font-display font-black text-white">Lily</span>
+                                    <div class="w-8 h-8 rounded-full bg-[#ff4d4d] flex items-center justify-center">
+                                        <div class="w-4 h-4 border-2 border-white rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <p class="text-[10px] font-bold tracking-widest text-[#b0b5c0] uppercase mb-2">2022 - 2024</p>
+                                <h3 class="text-xl font-bold mb-3 leading-tight">Refonte Application Web</h3>
+                                <p class="text-sm text-[#b0b5c0] line-clamp-3 mb-6 flex-1">
+                                    Modernisation complète d'une infrastructure legacy vers une architecture v3 scalable.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge">Kubernetes</span>
+                                    <span class="tech-badge">Node.js</span>
+                                    <span class="tech-badge">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 5 -->
+                        <article class="project-card group">
+                            <div class="relative h-48 bg-[#cb3837] flex items-center justify-center p-8">
+                                <iconify-icon icon="mdi:npm" class="text-8xl text-white"></iconify-icon>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <p class="text-[10px] font-bold tracking-widest text-[#b0b5c0] uppercase mb-2">Juin 2023</p>
+                                <h3 class="text-xl font-bold mb-3 leading-tight">Redis Typesafe ORM</h3>
+                                <p class="text-sm text-[#b0b5c0] line-clamp-3 mb-6 flex-1">
+                                    Librairie open-source pour la création de schémas Redis typés en TypeScript.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge font-bold text-[#3186ff]">Code source</span>
+                                    <span class="tech-badge">Redis</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 6 -->
+                        <article class="project-card group">
+                            <div class="relative h-48 bg-[#cb3837]/80 flex items-center justify-center p-8">
+                                <div class="border-4 border-white p-4 font-display font-black text-4xl text-white uppercase">NPM</div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <p class="text-[10px] font-bold tracking-widest text-[#b0b5c0] uppercase mb-2">Juin 2023</p>
+                                <h3 class="text-xl font-bold mb-3 leading-tight">Chiffrement Typesafe JS</h3>
+                                <p class="text-sm text-[#b0b5c0] line-clamp-3 mb-6 flex-1">
+                                    Librairie cryptographique haut-niveau pour la génération de JWT et le chiffrement de données.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge font-bold text-[#3186ff]">Code source</span>
+                                    <span class="tech-badge">Node.js</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 7 -->
+                        <article class="project-card group">
+                            <div class="relative h-48 bg-[#1e1b4b] flex items-center justify-center p-8">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-4xl font-display font-black text-white">Lily</span>
+                                    <div class="w-8 h-8 rounded-full bg-[#ff4d4d]"></div>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <p class="text-[10px] font-bold tracking-widest text-[#b0b5c0] uppercase mb-2">2023 - 2024</p>
+                                <h3 class="text-xl font-bold mb-3 leading-tight">Micro SaaS Email Signature</h3>
+                                <p class="text-sm text-[#b0b5c0] line-clamp-3 mb-6 flex-1">
+                                    Développement complet d'un service de signature électronique pour usage commercial.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge font-bold text-[#3186ff]">Code source</span>
+                                    <span class="tech-badge">React</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Placeholder / Add More -->
+                        <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="add-project-cta" class="project-card border-dashed border-2 border-[#2a3544] bg-transparent flex items-center justify-center hover:bg-white/5">
+                            <div class="text-center p-8">
+                                <iconify-icon icon="lucide:plus-circle" class="text-4xl text-[#3186ff] mb-4"></iconify-icon>
+                                <p class="font-bold uppercase tracking-widest text-sm">Votre projet ici</p>
+                                <p class="text-xs text-[#b0b5c0] mt-2">Lançons une collaboration</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TESTIMONIALS -->
+            <section class="py-24 px-6 border-t border-[#2a3544] bg-[#0c1014]">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-16">
+                        <h2 class="font-display text-4xl font-bold tracking-tight uppercase">
+                            Nos <span class="text-[#2daeb8]">Témoignages</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs">AC</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Asana Code</h4>
+                                    <p class="text-[10px] text-[#b0b5c0] uppercase">Agence Partenaire</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-[#b0b5c0] leading-relaxed italic">
+                                "J'ai eu le plaisir de collaborer avec le fondateur d'IdeaToCode. Sa rigueur et sa maîtrise technique sur l'infrastructure sont exemplaires."
+                            </p>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-[#f59e0b] flex items-center justify-center text-white">
+                                    <iconify-icon icon="lucide:home"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Devez Intérieur</h4>
+                                    <p class="text-[10px] text-[#b0b5c0] uppercase">Client Direct</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-[#b0b5c0] leading-relaxed italic">
+                                "Une écoute attentive des besoins et une vision pragmatique. Un suivi exemplaire de bout en bout du projet."
+                            </p>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-[#2daeb8] flex items-center justify-center text-white font-bold text-xs">
+                                    F
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Freelance Tech</h4>
+                                    <p class="text-[10px] text-[#b0b5c0] uppercase">Collaboration</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-[#b0b5c0] leading-relaxed italic">
+                                "Merci pour le travail effectué ! Une expertise DevOps qui fait vraiment la différence sur des projets complexes."
+                            </p>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-card">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-[#3186ff] flex items-center justify-center text-white font-bold text-xs">
+                                    I
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">IPSSI</h4>
+                                    <p class="text-[10px] text-[#b0b5c0] uppercase">Éducation / Tech</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-[#b0b5c0] leading-relaxed italic">
+                                "Fait preuve d'un professionnalisme exemplaire. Son sens du détail et sa capacité à fournir un travail soigné sont remarquables."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="py-12 border-t border-[#2a3544]">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+                <a href="https://p.superdesign.dev/draft/894d95cd-de76-4034-a361-8747a83eea18" id="footer-logo" class="flex items-center gap-3 group">
+                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/349d8a18-70ab-4f8b-8e73-984fbed2571f/1775733787137-9360be51/logo-v2.png" alt="Logo" class="h-8 grayscale brightness-200 opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all">
+                    <span class="font-display font-bold text-lg tracking-tight">IdeaToCode</span>
+                </a>
+                
+                <div class="flex gap-8">
+                    <a href="https://p.superdesign.dev/draft/29cdc1d3-361e-4183-8237-87c7aaea954f" id="footer-services" class="text-xs font-bold uppercase tracking-widest text-[#b0b5c0] hover:text-white transition-colors">Services</a>
+                    <a href="https://p.superdesign.dev/draft/9fcfea52-5962-4eb3-885b-66dfc56b412a" id="footer-projets" class="text-xs font-bold uppercase tracking-widest text-[#b0b5c0] hover:text-white transition-colors">Projets</a>
+                    <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="footer-contact" class="text-xs font-bold uppercase tracking-widest text-[#3186ff] hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <p class="text-xs text-[#b0b5c0]">© 2024 IdeaToCode Studio. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

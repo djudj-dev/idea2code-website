@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdeaToCode — Editorial Tech Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://api.fontshare.com/v2/css?f[]=space-grotesk@300,400,500,600,700&f[]=satoshi@300,400,500,700&display=swap');
+
+        :root {
+            --bg: #0f1419;
+            --surface: #1a1f2e;
+            --primary: #3186ff;
+            --secondary: #2daeb8;
+            --border: #2a3544;
+            --text-main: #ffffff;
+            --text-muted: #b0b5c0;
+            --ease: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            gap: 24px;
+        }
+
+        .card-editorial {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 24px;
+            transition: all 0.4s var(--ease);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-editorial:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 40px rgba(49, 134, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .carousel-container {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 30%, #3186ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .timeline-dot {
+            position: relative;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s var(--ease);
+        }
+
+        .timeline-step:hover .timeline-dot {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hero-pattern {
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- NAVIGATION -->
+        <header class="fixed top-0 left-0 right-0 z-50 bg-[#0f1419]/80 backdrop-blur-xl border-b border-[#2a3544]">
+            <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <div class="flex items-center gap-12">
+                    <a href="https://p.superdesign.dev/draft/894d95cd-de76-4034-a361-8747a83eea18" id="nav-logo" class="flex items-center gap-3 group">
+                        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/349d8a18-70ab-4f8b-8e73-984fbed2571f/1775733787137-9360be51/logo-v2.png" alt="Logo" class="h-9 w-auto grayscale brightness-200 group-hover:grayscale-0 transition-all">
+                        <span class="font-display font-bold text-lg tracking-tight">IdeaToCode</span>
+                    </a>
+                    
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="https://p.superdesign.dev/draft/29cdc1d3-361e-4183-8237-87c7aaea954f" id="nav-services" class="text-sm font-medium text-[#b0b5c0] hover:text-white transition-colors">Services</a>
+                        <a href="https://p.superdesign.dev/draft/9fcfea52-5962-4eb3-885b-66dfc56b412a" id="nav-portfolio" class="text-sm font-medium text-[#b0b5c0] hover:text-white transition-colors">Projets</a>
+                        <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="nav-contact" class="text-sm font-medium text-[#b0b5c0] hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+
+                <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="nav-cta" class="hidden sm:inline-flex items-center justify-center h-10 px-6 rounded-full bg-white text-[#0f1419] text-sm font-bold hover:bg-[#3186ff] hover:text-white transition-all">
+                    Démarrer un projet
+                </a>
+            </nav>
+        </header>
+
+        <main class="flex-1 pt-20">
+            <!-- HERO SECTION: Dramatic Typography -->
+            <section class="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-[#0f1419] to-[#1a2a4e]">
+                <!-- Background Pattern Overlay -->
+                <div class="absolute inset-0 hero-pattern pointer-events-none opacity-100"></div>
+                
+                <div class="max-w-7xl mx-auto px-6 relative z-10">
+                    <div class="max-w-4xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#2a3544] bg-[#1a1f2e] text-xs font-bold text-[#3186ff] mb-8">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3186ff] opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#3186ff]"></span>
+                            </span>
+                            STUDIO TECH PREMIUM
+                        </div>
+                        <h1 class="font-display text-6xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-12 uppercase">
+                            L'Expertise <span class="gradient-text">Tech</span> & <span class="text-[#2daeb8]">Design</span> au service de votre vision.
+                        </h1>
+                        <p class="text-xl text-[#b0b5c0] max-w-2xl leading-relaxed mb-12">
+                            IdeaToCode est une agence de développement et de design qui fusionne l'élégance éditoriale avec la puissance technologique pour les entreprises visionnaires.
+                        </p>
+                        <div class="flex flex-wrap gap-6">
+                            <a href="https://p.superdesign.dev/draft/9fcfea52-5962-4eb3-885b-66dfc56b412a" id="hero-work" class="group flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[#3186ff] to-[#2daeb8] text-white text-base font-bold hover:scale-105 transition-all shadow-lg hover:shadow-[#3186ff]/25">
+                                Découvrir nos projets
+                                <iconify-icon icon="lucide:arrow-right" class="text-xl group-hover:translate-x-1 transition-transform"></iconify-icon>
+                            </a>
+                            <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="hero-contact" class="flex items-center justify-center px-8 py-4 rounded-xl border border-[#2a3544] text-white text-base font-bold hover:bg-white/5 transition-all">
+                                Nous contacter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decorative background detail -->
+                <div class="absolute -right-20 top-20 opacity-10 pointer-events-none">
+                    <div class="w-[800px] h-[800px] rounded-full bg-gradient-to-br from-[#3186ff] to-transparent blur-[120px]"></div>
+                </div>
+            </section>
+
+            <!-- ABOUT/STATS: Editorial Inline Integration -->
+            <section id="about" class="section-padding border-t border-[#2a3544]">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-24 items-end">
+                        <div class="space-y-8">
+                            <h2 class="font-display text-4xl font-bold tracking-tight">L'excellence par le détail.</h2>
+                            <p class="text-2xl text-[#b0b5c0] leading-relaxed">
+                                Depuis notre fondation en <span class="text-white font-bold">2018</span>, nous avons accompagné plus de <span class="text-white font-bold">50+ clients</span> dans leur transformation digitale. Notre équipe maintient un taux de satisfaction de <span class="text-white font-bold">98%</span>, fruit d'une exigence technique sans compromis et d'une vision centrée sur l'utilisateur.
+                            </p>
+                        </div>
+                        <div class="pb-4">
+                            <div class="flex gap-12 border-l border-[#2a3544] pl-12">
+                                <div>
+                                    <span class="block text-4xl font-display font-bold text-[#3186ff]">12k+</span>
+                                    <span class="text-sm text-[#b0b5c0] uppercase tracking-widest">Heures de code</span>
+                                </div>
+                                <div>
+                                    <span class="block text-4xl font-display font-bold text-[#2daeb8]">100%</span>
+                                    <span class="text-sm text-[#b0b5c0] uppercase tracking-widest">Cloud Native</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SERVICES: Asymmetric Bento Grid -->
+            <section id="services" class="section-padding bg-[#141a23]">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="mb-16">
+                        <h3 class="font-display text-xs font-bold tracking-[0.2em] text-[#3186ff] uppercase mb-4">Expertise</h3>
+                        <h2 class="font-display text-5xl font-bold tracking-tight">Nos domaines de maîtrise.</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="card-editorial flex flex-col">
+                            <div class="space-y-6">
+                                <div class="w-14 h-14 rounded-2xl bg-[#3186ff]/10 border border-[#3186ff]/20 flex items-center justify-center text-[#3186ff] text-2xl">
+                                    <iconify-icon icon="lucide:panels-top-left"></iconify-icon>
+                                </div>
+                                <h4 class="font-display text-2xl font-bold">Développement Web</h4>
+                                <p class="text-sm text-[#b0b5c0] flex-1 leading-relaxed">
+                                    Architectures scalables avec React, Next.js et Node. Des produits digitaux robustes.
+                                </p>
+                            </div>
+                            <ul class="mt-8 flex flex-wrap gap-2">
+                                <li class="px-3 py-1 rounded-full border border-[#2a3544] text-xs">Performance</li>
+                                <li class="px-3 py-1 rounded-full border border-[#2a3544] text-xs">Sécurité</li>
+                            </ul>
+                        </div>
+
+                        <div class="card-editorial flex flex-col">
+                            <div class="space-y-6">
+                                <div class="w-14 h-14 rounded-2xl bg-[#2daeb8]/10 border border-[#2daeb8]/20 flex items-center justify-center text-[#2daeb8] text-2xl">
+                                    <iconify-icon icon="lucide:palette"></iconify-icon>
+                                </div>
+                                <h4 class="font-display text-2xl font-bold">UI/UX Design</h4>
+                                <p class="text-sm text-[#b0b5c0] flex-1 leading-relaxed">
+                                    Interfaces minimalistes et fluides conçues pour l'engagement.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card-editorial flex flex-col">
+                            <div class="space-y-6">
+                                <div class="w-14 h-14 rounded-2xl bg-[#3186ff]/10 border border-[#3186ff]/20 flex items-center justify-center text-[#3186ff] text-2xl">
+                                    <iconify-icon icon="lucide:sparkles"></iconify-icon>
+                                </div>
+                                <h4 class="font-display text-2xl font-bold">Brand Identity</h4>
+                                <p class="text-sm text-[#b0b5c0] flex-1 leading-relaxed">
+                                    Donner une âme à votre technologie via un branding fort et mémorable.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card-editorial flex flex-col">
+                            <div class="space-y-6">
+                                <div class="w-14 h-14 rounded-2xl bg-[#f59e0b]/10 border border-[#f59e0b]/20 flex items-center justify-center text-[#f59e0b] text-2xl">
+                                    <iconify-icon icon="lucide:zap"></iconify-icon>
+                                </div>
+                                <h4 class="font-display text-2xl font-bold">Stratégie Produit</h4>
+                                <p class="text-sm text-[#b0b5c0] flex-1 leading-relaxed">
+                                    Analyse de marché et roadmap pour maximiser le ROI de vos développements.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card-editorial flex flex-col">
+                            <div class="space-y-6">
+                                <div class="w-14 h-14 rounded-2xl bg-[#10b981]/10 border border-[#10b981]/20 flex items-center justify-center text-[#10b981] text-2xl">
+                                    <iconify-icon icon="lucide:bar-chart-3"></iconify-icon>
+                                </div>
+                                <h4 class="font-display text-2xl font-bold">Data Analytics</h4>
+                                <p class="text-sm text-[#b0b5c0] flex-1 leading-relaxed">
+                                    Monitoring et optimisation continue basés sur les données réelles.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PORTFOLIO: Horizontal Scroll -->
+            <section id="portfolio" class="py-32 overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6 mb-16 flex items-end justify-between">
+                    <div>
+                        <h3 class="font-display text-xs font-bold tracking-[0.2em] text-[#3186ff] uppercase mb-4">Portfolio</h3>
+                        <h2 class="font-display text-5xl font-bold tracking-tight">Sélection de projets.</h2>
+                    </div>
+                    <div class="flex gap-4">
+                        <button id="scroll-left" class="w-12 h-12 rounded-full border border-[#2a3544] flex items-center justify-center hover:border-white transition-all">
+                            <iconify-icon icon="lucide:chevron-left"></iconify-icon>
+                        </button>
+                        <button id="scroll-right" class="w-12 h-12 rounded-full border border-[#2a3544] flex items-center justify-center hover:border-white transition-all">
+                            <iconify-icon icon="lucide:chevron-right"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="carousel-container flex overflow-x-auto gap-8 px-6 md:px-[calc((100vw-1280px)/2)] pb-12 snap-x">
+                    <!-- Project Card 1 -->
+                    <div class="flex-none w-[450px] snap-center group">
+                        <div class="aspect-[4/5] bg-[#1a1f2e] rounded-3xl overflow-hidden mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Streamline Platform" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1419] via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="px-4">
+                            <span class="text-xs font-bold text-[#3186ff] uppercase tracking-widest mb-2 block">Fintech SaaS</span>
+                            <h4 class="font-display text-2xl font-bold mb-2">Streamline Platform</h4>
+                            <p class="text-[#b0b5c0]">Refonte de l'architecture logicielle pour une startup fintech en forte croissance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="flex-none w-[450px] snap-center group">
+                        <div class="aspect-[4/5] bg-[#1a1f2e] rounded-3xl overflow-hidden mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&q=80&w=800" alt="Aura Collective" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1419] via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="px-4">
+                            <span class="text-xs font-bold text-[#2daeb8] uppercase tracking-widest mb-2 block">E-Commerce Premium</span>
+                            <h4 class="font-display text-2xl font-bold mb-2">Aura Collective</h4>
+                            <p class="text-[#b0b5c0]">Expérience shopping immersive focalisée sur la conversion et l'émotion.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="flex-none w-[450px] snap-center group">
+                        <div class="aspect-[4/5] bg-[#1a1f2e] rounded-3xl overflow-hidden mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800" alt="Horizon AI" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1419] via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="px-4">
+                            <span class="text-xs font-bold text-[#3186ff] uppercase tracking-widest mb-2 block">Artificial Intelligence</span>
+                            <h4 class="font-display text-2xl font-bold mb-2">Horizon AI</h4>
+                            <p class="text-[#b0b5c0]">Dashboard analytique complexe pour le monitoring de modèles d'IA prédictifs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="flex-none w-[450px] snap-center group">
+                        <div class="aspect-[4/5] bg-[#1a1f2e] rounded-3xl overflow-hidden mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" alt="Nova Health" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1419] via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="px-4">
+                            <span class="text-xs font-bold text-[#f59e0b] uppercase tracking-widest mb-2 block">Healthtech</span>
+                            <h4 class="font-display text-2xl font-bold mb-2">Nova Health</h4>
+                            <p class="text-[#b0b5c0]">Plateforme de télémédecine sécurisée avec intégration de biométrie temps réel.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROCESS: Vertical Timeline -->
+            <section id="process" class="section-padding border-t border-[#2a3544]">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-24">
+                        <div class="sticky top-32 h-fit">
+                            <h3 class="font-display text-xs font-bold tracking-[0.2em] text-[#3186ff] uppercase mb-4">Méthodologie</h3>
+                            <h2 class="font-display text-5xl font-bold tracking-tight mb-8 leading-tight">De la vision stratégique au déploiement sans faille.</h2>
+                            <p class="text-xl text-[#b0b5c0] leading-relaxed">
+                                Nous suivons un protocole rigoureux pour garantir que chaque pixel et chaque ligne de code servent vos objectifs commerciaux.
+                            </p>
+                        </div>
+
+                        <div class="relative space-y-24">
+                            <div class="timeline-line"></div>
+                            
+                            <!-- Step 1 -->
+                            <div class="timeline-step group pl-16 relative">
+                                <div class="absolute left-0">
+                                    <div class="timeline-dot">
+                                        <span class="font-display font-bold">01</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <h4 class="font-display text-2xl font-bold group-hover:text-[#3186ff] transition-colors">Exploration & Stratégie</h4>
+                                    <p class="text-[#b0b5c0] leading-relaxed">
+                                        Immersion totale dans votre écosystème. Nous définissons les KPIs, analysons la concurrence et dessinons la roadmap produit optimale.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="timeline-step group pl-16 relative">
+                                <div class="absolute left-0">
+                                    <div class="timeline-dot">
+                                        <span class="font-display font-bold">02</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <h4 class="font-display text-2xl font-bold group-hover:text-[#3186ff] transition-colors">Conception & Expérience</h4>
+                                    <p class="text-[#b0b5c0] leading-relaxed">
+                                        Prototypage itératif. Nous créons des parcours utilisateurs fluides et des interfaces qui captent l'attention instantanément.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="timeline-step group pl-16 relative">
+                                <div class="absolute left-0">
+                                    <div class="timeline-dot">
+                                        <span class="font-display font-bold">03</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <h4 class="font-display text-2xl font-bold group-hover:text-[#3186ff] transition-colors">Ingénierie de Précision</h4>
+                                    <p class="text-[#b0b5c0] leading-relaxed">
+                                        Développement agile en cycles courts. Code propre, tests automatisés et architectures prêtes pour la mise à l'échelle.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="timeline-step group pl-16 relative">
+                                <div class="absolute left-0">
+                                    <div class="timeline-dot">
+                                        <span class="font-display font-bold">04</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <h4 class="font-display text-2xl font-bold group-hover:text-[#3186ff] transition-colors">Lancement & Évolution</h4>
+                                    <p class="text-[#b0b5c0] leading-relaxed">
+                                        Déploiement optimisé et monitoring post-lancement. Nous vous accompagnons dans la durée pour faire évoluer votre plateforme.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FINAL CTA: Full Width Impact -->
+            <section class="py-32 bg-[#3186ff]">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center space-y-12">
+                        <h2 class="font-display text-6xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9]">
+                            Prêt à coder votre <br> succès ?
+                        </h2>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                            <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="cta-primary" class="px-12 py-5 rounded-full bg-[#0f1419] text-white font-bold text-lg hover:scale-105 transition-all shadow-xl">
+                                Démarrer la conversation
+                            </a>
+                            <a href="mailto:hello@ideatocode.fr" id="cta-secondary" class="text-lg font-bold text-[#0f1419] underline decoration-2 underline-offset-8">
+                                hello@ideatocode.fr
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="py-12 border-t border-[#2a3544]">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="flex items-center gap-3">
+                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/349d8a18-70ab-4f8b-8e73-984fbed2571f/1775733787137-9360be51/logo-v2.png" alt="Logo" class="h-8 grayscale brightness-200 opacity-60">
+                    <span class="font-display font-bold text-lg tracking-tight">IdeaToCode</span>
+                </div>
+                
+                <div class="flex gap-8">
+                    <a href="https://p.superdesign.dev/draft/894d95cd-de76-4034-a361-8747a83eea18" id="footer-home-link" class="text-xs font-bold uppercase tracking-widest text-[#b0b5c0] hover:text-white">Home</a>
+                    <a href="https://p.superdesign.dev/draft/29cdc1d3-361e-4183-8237-87c7aaea954f" id="footer-services-link" class="text-xs font-bold uppercase tracking-widest text-[#b0b5c0] hover:text-white">Services</a>
+                    <a href="https://p.superdesign.dev/draft/9fcfea52-5962-4eb3-885b-66dfc56b412a" id="footer-projets-link" class="text-xs font-bold uppercase tracking-widest text-[#b0b5c0] hover:text-white">Projets</a>
+                    <a href="https://p.superdesign.dev/draft/adc3063a-e905-4c42-ac7f-3ec91b75b9a0" id="footer-contact-link" class="text-xs font-bold uppercase tracking-widest text-[#3186ff] hover:text-white">Contact</a>
+                </div>
+
+                <p class="text-xs text-[#b0b5c0]">© 2024 IdeaToCode Studio. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Basic horizontal scroll logic for portfolio
+        const container = document.querySelector('.carousel-container');
+        document.getElementById('scroll-right').onclick = () => {
+            container.scrollBy({ left: 500, behavior: 'smooth' });
+        };
+        document.getElementById('scroll-left').onclick = () => {
+            container.scrollBy({ left: -500, behavior: 'smooth' });
+        };
+    </script>
+</body>
+</html>
