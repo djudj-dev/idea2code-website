@@ -57,7 +57,7 @@ export const PhoneNav = ({
     <div className="md:hidden">
       <nav
         data-cy="phone-nav"
-        className="w-full bg-background/80 backdrop-blur-xl fixed inset-x-0 top-0 z-40 border-b border-border"
+        className="w-full bg-background/60 backdrop-blur-xl fixed inset-x-0 top-0 z-40 border-b border-border"
       >
         <div className="max-w-screen-2xl mx-auto h-16 px-6 flex items-center justify-between">
           <LinkTrack
