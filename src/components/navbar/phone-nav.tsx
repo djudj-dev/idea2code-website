@@ -66,7 +66,11 @@ export const PhoneNav = ({
             className="group flex items-center gap-3"
             onClick={close}
           >
-            <Image src={i2cIcon} alt="IdeaToCode logo" className="h-7 w-auto" />
+            <Image
+              src={i2cIcon}
+              alt="IdeaToCode logo"
+              className="h-4.5 w-auto"
+            />
             <span className="font-display text-xl font-bold text-foreground">
               IdeaToCode
             </span>
