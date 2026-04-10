@@ -1,10 +1,10 @@
-import * as React from "react"
+import * as React from 'react';
 
 const SvgComponent = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={800}
-    height={800}
+    width={24}
+    height={24}
     fill="none"
     viewBox="0 0 24 24"
     {...props}
@@ -20,5 +20,5 @@ const SvgComponent = (props: React.SVGProps<SVGSVGElement>) => (
       clipRule="evenodd"
     />
   </svg>
-)
-export { SvgComponent as LinkedInIcon }
+);
+export { SvgComponent as LinkedInIcon };

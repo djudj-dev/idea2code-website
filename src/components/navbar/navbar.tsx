@@ -1,21 +1,8 @@
-
+import { string } from '@/utils/string';
 import { DesktopNav } from './desktop-nav';
-import { PhoneNav } from './phone-nav'
+import { PhoneNav } from './phone-nav';
 
-export const links = [
-  {
-    text: 'Services',
-    url: '/services',
-  },
-  {
-    text: 'Réalisations',
-    url: '/projects',
-  },
-  {
-    text: 'Contact',
-    url: '/contact',
-  },
-];
+export const links = string.nav.links;
 
 export const Navbar = () => (
   <>

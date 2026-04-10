@@ -1,53 +1,93 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { Navbar } from "@/components/navbar/navbar";
-import { Footer } from "@/components/footer";
-import { Toaster } from "sonner";
+import type { Metadata } from 'next';
+import { Space_Grotesk, Inter } from 'next/font/google';
+import './globals.css';
+import { Navbar } from '@/components/navbar/navbar';
+import { Footer } from '@/components/footer';
+import { Toaster } from 'sonner';
 import { AptabaseProvider } from '@aptabase/react';
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from '@/components/theme-provider';
+import { string } from '@/utils/string';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-display',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const inter = Inter({
+  variable: '--font-body',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
-  title: "IdeaToCode",
-  description: "IdeaToCode accompagne les entreprises et TPE dans la création de sites vitrines, applications web et solutions digitales",
+  metadataBase: new URL(string.metadata.url),
+  title: {
+    default: string.metadata.title,
+    template: string.metadata.titleTemplate,
+  },
+  description: string.metadata.description,
+  keywords: string.metadata.keywords,
+  applicationName: string.metadata.siteName,
+  authors: [{ name: string.metadata.siteName, url: string.metadata.url }],
+  creator: string.metadata.siteName,
+  publisher: string.metadata.siteName,
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
+  openGraph: {
+    type: 'website',
+    locale: string.metadata.locale,
+    url: string.metadata.url,
+    siteName: string.metadata.siteName,
+    title: string.metadata.title,
+    description: string.metadata.description,
+  },
+  twitter: {
+    card: 'summary',
+    title: string.metadata.title,
+    description: string.metadata.description,
+  },
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="fr">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+}>) => (
+  <html lang="fr" suppressHydrationWarning>
+    <body
+      className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased`}
+    >
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        forcedTheme="dark"
+        disableTransitionOnChange
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <AptabaseProvider appKey="A-EU-4649182773">
-            <Navbar />
-            <main className="p-4 py-10 lg:py-14 md:px-24">
-              {children}
-            </main>
-          </AptabaseProvider>
-          <Toaster />
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
-  );
-}
+        <AptabaseProvider appKey="A-EU-4649182773">
+          <Navbar />
+          <main className="pt-20">{children}</main>
+        </AptabaseProvider>
+        <Toaster />
+        <Footer />
+      </ThemeProvider>
+    </body>
+  </html>
+);
+
+export default RootLayout;

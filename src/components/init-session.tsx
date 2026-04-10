@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import { useAptabase } from "@aptabase/react"
-import { useEffect } from "react"
+import { useAptabase } from '@aptabase/react';
+import { useEffect } from 'react';
 
 export const InitPageSession = ({ page }: { page: string }) => {
-    const { trackEvent } = useAptabase();
+  const { trackEvent } = useAptabase();
 
-    useEffect(() => {
-        trackEvent('load-page', { page })
-    },[])
+  useEffect(() => {
+    trackEvent('load-page', { page });
+  }, []);
 
-    return <></>
-}
+  return <></>;
+};

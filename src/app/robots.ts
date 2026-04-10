@@ -1,12 +1,14 @@
-import type { MetadataRoute } from 'next'
- 
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/private/',
-    },
-    sitemap: 'https://ideatocode.io/public/sitemap.xml',
-  }
-}
+import type { MetadataRoute } from 'next';
+import { string } from '@/utils/string';
+
+const robots = (): MetadataRoute.Robots => ({
+  rules: {
+    userAgent: '*',
+    allow: '/',
+    disallow: ['/api/'],
+  },
+  host: string.metadata.url,
+  sitemap: `${string.metadata.url}/sitemap.xml`,
+});
+
+export default robots;

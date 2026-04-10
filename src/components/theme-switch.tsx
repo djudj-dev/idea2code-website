@@ -20,9 +20,7 @@ export const ThemeSwitch = () => {
   if (!mounted) return null;
 
   return (
-    <div
-      className="flex items-center justify-center"
-    >
+    <div className="flex items-center justify-center">
       <Sun className="size-6 text-primary" />
       <Switch
         className="mx-2"

@@ -1,143 +1,270 @@
-'use client'
+'use client';
 
 import { useForm } from 'react-hook-form';
 import { Input } from './ui/input';
-import { Button } from './ui/button';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from './ui/select';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
-import { ShineBorder } from './magicui/shine-border';
-import { Typography } from './typography';
+import { Typography } from './ui/typography';
+import { Button } from './ui/button';
 import { Form, FormField } from './ui/form';
-import { flattenError, z } from 'zod'
+import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { formSchema } from '@/lib/models';
 import { toast } from 'sonner';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { Send } from 'lucide-react';
+import { useState } from 'react';
+import { Check, Loader2, Send, ArrowRight } from 'lucide-react';
 import { useAptabase } from '@aptabase/react';
+import { cn } from '@/lib/utils';
+import { string } from '@/utils/string';
+
+const labelClasses =
+  'mb-2 text-xs font-bold uppercase tracking-widest text-muted-foreground';
+const inputClasses = 'h-12 rounded-lg bg-muted px-4';
 
 export const ContactForm = ({ className }: { className?: string }) => {
-    const searchParams = useSearchParams();
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            projectType: z.string().safeParse(searchParams.get('projectType')).data || undefined,
+  const searchParams = useSearchParams();
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      projectType:
+        z.string().safeParse(searchParams.get('projectType')).data || undefined,
+    },
+  });
+
+  const { trackEvent } = useAptabase();
+  const { register, handleSubmit } = form;
+  const router = useRouter();
+  const [isSending, setSending] = useState(false);
+  const [isSuccess, setSuccess] = useState(false);
+
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    trackEvent('submiting-contact-form');
+    setSending(true);
+
+    try {
+      await fetch('/api/send-mail', {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-    });
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
 
-    const { trackEvent } = useAptabase()
-    const { register, handleSubmit } = form;
-    const router = useRouter();
-    const [isSending, setSending] = useState(false);
+      setSuccess(true);
+      toast(
+        <div className="flex items-center gap-2">
+          <Send className="size-4" />
+          <Typography.Large>
+            {string.contactForm.toasts.success}
+          </Typography.Large>
+        </div>,
+        {
+          className: 'text-foreground! bg-card! border-border!',
+          duration: 2000,
+        },
+      );
 
-    const onSubmit = (data: z.infer<typeof formSchema>) => {
-        trackEvent('submiting-contact-form');
-        setSending(true);
-            fetch('/api/send-mail', {
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-                method: "POST",
-                body: JSON.stringify(data)
-            }).then((v) => {
-                toast(
-                    <div className="flex items-center">
-                        <Send/>
-                        <Typography.Large>Email envoyé !</Typography.Large>
-                    </div>,
-                    {
-                        className: 'z-50 text-[--foreground]! bg-card! border-[--foreground]/15!',
-                        duration: 2000,
-                    }
-                )
-                router.push('/')
-            })        
+      setTimeout(() => {
+        router.push('/');
+      }, 1500);
+    } catch (error) {
+      console.error(error);
+      toast(string.contactForm.toasts.error, {
+        className: 'text-foreground! bg-card! border-border!',
+        duration: 3000,
+      });
+    } finally {
+      setSending(false);
     }
+  };
 
-    return (
-        <Form {...form}>
-            <form onSubmit={handleSubmit(onSubmit)} className={`xl:grid block grid-rows xl:grid-rows-none xl:grid-cols-2 m-auto ${className}`}>
-                <div className='p-4'>
-                    <Label className="mb-2" htmlFor="firstname">Prénom*</Label>
-                    <Input disabled={isSending} className="rounded" id='firstname' type="text" {...register("firstName", { required: false, maxLength: 80 })} />
-                </div>
-                <div className='p-4'>
-                    <Label className="mb-2" htmlFor="last">Nom*</Label>
-                    <Input disabled={isSending} className="rounded" id='lastname' type="text" {...register("lastName", { required: false, maxLength: 100 })} />
-                </div>
-                <div className='p-4'>
-                    <Label className="mb-2" htmlFor="email">Email*</Label>
-                    <Input disabled={isSending} className="rounded" id='email' type="text" {...register("email", { required: false, pattern: /^\S+@\S+$/i })} />
-                </div>
-                <div className='p-4'>
-                    <Label className="mb-2" htmlFor="phone">Numéro de Téléphone</Label>
-                    <Input disabled={isSending} className="rounded" id='phone' type="tel" {...register("phone", { minLength: 6, maxLength: 12 })} />
-                </div>
-                <div className='p-4'>
-                    <Label className="mb-2" htmlFor="society">Société</Label>
-                    <Input disabled={isSending} className="rounded" id='society' type="text"  {...register("society")} />
-                </div>
-                <div></div>
-                <FormField 
-                    name='projectType'
-                    rules={{required: true}}
-                    render={({ field }) => (
-                        <div className='p-4'>
-                            <Label className="mb-2" htmlFor="projectType">Type de Projet*</Label>
-                            <Select disabled={isSending} onValueChange={field.onChange} {...register("budget", {required: true})} defaultValue={field.value}>
-                                <SelectTrigger className="w-full rounded">
-                                    <SelectValue  placeholder="Quel type de projet ?" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectGroup>
-                                        <SelectItem value="landingpage">Landing Page</SelectItem>
-                                        <SelectItem value="vitrinewebsite">Site Vitrine</SelectItem>
-                                        <SelectItem value="SaaS">SaaS</SelectItem>
-                                        <SelectItem value="Intervention">{`Intervention D'app`}</SelectItem>
-                                        <SelectItem value="other">Autre</SelectItem>
-                                    </SelectGroup>
-                                </SelectContent>
-                            </Select>
-                        </div>
-                    )}
-                />
-                <FormField 
-                    name='budget'
-                    rules={{ required: true}}
-                    render={({ field }) => (
-                        <div className='p-4'>
-                            <Label className="mb-2" htmlFor="budjet">Votre budget*</Label>
-                            <Select disabled={isSending} onValueChange={field.onChange} {...register("budget", {required: true})} defaultValue={field.value} >
-                                <SelectTrigger id="budjet" className="w-full rounded">
-                                    <SelectValue placeholder="Choisissez votre budget" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectGroup>
-                                        <SelectItem value=" >1000"> 1 000€</SelectItem>
-                                        <SelectItem value=" 1000 - 2000"> 1 000€ - 2 000€</SelectItem>
-                                        <SelectItem value=" 2000 - 5000"> 2 000€ - 5 000€</SelectItem>
-                                        <SelectItem value=" 5000+"> 5 000€ +</SelectItem>
-                                    </SelectGroup>
-                                </SelectContent>
-                            </Select>
-                        </div>
-                    )}
-                />
-                <div className='p-4 col-span-2'>
-                    <Label className="mb-2" htmlFor="projectInfo">Information sur votre projet</Label>
-                    <Textarea disabled={isSending} className='h-20 rounded' id="projectInfo" {...register('projectInfo')} />
-                </div>
-                <Typography.Text className='m-4 text-[--foreground]/50 leading-0! text-sm col-span-2'>* Champ obligatoire</Typography.Text>
-                
-                <Button disabled={isSending} className={`relative m-4 w-fit rounded-full px-6 disabled py-5`} type="submit"  variant="outline">
-                    Lancer mon projet
-                    <ShineBorder shineColor={["#00F0FF", "#5200FF", "#FF2DF7"]} />
-                </Button>
-            </form>
-        </Form>
-       
-    );
-}
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={cn('flex flex-col gap-5', className)}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <Label className={labelClasses} htmlFor="firstname">
+              {string.contactForm.labels.firstName}
+            </Label>
+            <Input
+              disabled={isSending}
+              className={inputClasses}
+              id="firstname"
+              type="text"
+              {...register('firstName', { required: false, maxLength: 80 })}
+            />
+          </div>
+          <div>
+            <Label className={labelClasses} htmlFor="last">
+              {string.contactForm.labels.lastName}
+            </Label>
+            <Input
+              disabled={isSending}
+              className={inputClasses}
+              id="lastname"
+              type="text"
+              {...register('lastName', { required: false, maxLength: 100 })}
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <Label className={labelClasses} htmlFor="email">
+              {string.contactForm.labels.email}
+            </Label>
+            <Input
+              disabled={isSending}
+              className={inputClasses}
+              id="email"
+              type="text"
+              {...register('email', { required: false, pattern: /^\S+@\S+$/i })}
+            />
+          </div>
+          <div>
+            <Label className={labelClasses} htmlFor="phone">
+              {string.contactForm.labels.phone}
+            </Label>
+            <Input
+              disabled={isSending}
+              className={inputClasses}
+              id="phone"
+              type="tel"
+              {...register('phone', { minLength: 6, maxLength: 12 })}
+            />
+          </div>
+        </div>
+        <div>
+          <Label className={labelClasses} htmlFor="society">
+            {string.contactForm.labels.company}
+          </Label>
+          <Input
+            disabled={isSending}
+            className={inputClasses}
+            id="society"
+            type="text"
+            {...register('society')}
+          />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <FormField
+            name="projectType"
+            rules={{ required: true }}
+            render={({ field }) => (
+              <div>
+                <Label className={labelClasses} htmlFor="projectType">
+                  {string.contactForm.labels.projectType}
+                </Label>
+                <Select
+                  disabled={isSending}
+                  onValueChange={field.onChange}
+                  {...register('budget', { required: true })}
+                  defaultValue={field.value}
+                >
+                  <SelectTrigger className={cn('w-full', inputClasses)}>
+                    <SelectValue
+                      placeholder={string.contactForm.placeholders.projectType}
+                    />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      {string.contactForm.options.projectType.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
+          />
+          <FormField
+            name="budget"
+            rules={{ required: true }}
+            render={({ field }) => (
+              <div>
+                <Label className={labelClasses} htmlFor="budjet">
+                  {string.contactForm.labels.budget}
+                </Label>
+                <Select
+                  disabled={isSending}
+                  onValueChange={field.onChange}
+                  {...register('budget', { required: true })}
+                  defaultValue={field.value}
+                >
+                  <SelectTrigger
+                    id="budjet"
+                    className={cn('w-full', inputClasses)}
+                  >
+                    <SelectValue
+                      placeholder={string.contactForm.placeholders.budget}
+                    />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      {string.contactForm.options.budget.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
+          />
+        </div>
+        <div>
+          <Label className={labelClasses} htmlFor="projectInfo">
+            {string.contactForm.labels.message}
+          </Label>
+          <Textarea
+            disabled={isSending}
+            className="min-h-32 resize-none rounded-lg bg-muted px-4 py-3 md:min-h-28"
+            id="projectInfo"
+            rows={5}
+            {...register('projectInfo')}
+          />
+        </div>
+        <Typography.Small>{string.contactForm.requiredHint}</Typography.Small>
+
+        <Button
+          type="submit"
+          size="lg"
+          disabled={isSending || isSuccess}
+          className="mt-2 w-full gap-2"
+        >
+          {isSuccess ? (
+            <>
+              <Check className="size-4" />
+              {string.contactForm.submit.success}
+            </>
+          ) : isSending ? (
+            <>
+              <Loader2 className="size-4 animate-spin" />
+              {string.contactForm.submit.loading}
+            </>
+          ) : (
+            <>
+              <span>{string.contactForm.submit.idle}</span>
+              <ArrowRight data-icon="inline-end" className="size-4" />
+            </>
+          )}
+        </Button>
+      </form>
+    </Form>
+  );
+};

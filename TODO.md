@@ -1,0 +1,2 @@
+- brancher resend pour l'envoie de mail
+- faire via llm une conversation qui donne un predevis et queliie le client 

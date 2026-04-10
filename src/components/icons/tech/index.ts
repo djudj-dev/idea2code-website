@@ -18,5 +18,11 @@ export { StrapiIcon } from './StrapiIcon';
 export { TailwindIcon } from './TailwindIcon';
 export { TypescriptIcon } from './TypescriptIcon';
 export { VimIcon } from './VimIcon';
-export { GithubIcon } from './GithubIcon'
-export { KubernetesIcon } from './KubernetesIcon'
+export { GithubIcon } from './GithubIcon';
+export { KubernetesIcon } from './KubernetesIcon';
+export { AnsibleIcon } from './AnsibleIcon';
+export { AwsIcon } from './AwsIcon';
+export { FlutterIcon } from './FlutterIcon';
+export { OvhCloudIcon } from './OvhCloudIcon';
+export { TerraformIcon } from './TerraformIcon';
+export { VercelIcon } from './VercelIcon';
